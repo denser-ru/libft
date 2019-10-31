@@ -6,7 +6,7 @@
 #    By: cayako <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/17 15:01:39 by cayako            #+#    #+#              #
-#    Updated: 2019/10/26 01:34:03 by cayako           ###   ########.fr        #
+#    Updated: 2019/11/01 00:14:35 by cayako           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRC=ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
 	ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 	ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c \
 	ft_lstmap.c ft_lstcut.c ft_lstdelcontent.c ft_lstpushf.c ft_lstpushb.c \
-	ft_lststrsplit.c
+	ft_lststrsplit.c ft_lststrtoarr.c ft_lstsize.c
 
 OBJ=ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o ft_memmove.o ft_memchr.o \
 	ft_memcmp.o ft_strlen.o ft_strdup.o ft_strcpy.o ft_strncpy.o ft_strcat.o \
@@ -38,7 +38,7 @@ OBJ=ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o ft_memmove.o ft_memchr.o \
 	ft_putnbr.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o \
 	ft_lstnew.o ft_lstdelone.o ft_lstdel.o ft_lstadd.o ft_lstiter.o \
 	ft_lstmap.o ft_lstcut.o ft_lstdelcontent.o ft_lstpushf.o ft_lstpushb.o \
-	ft_lststrsplit.o
+	ft_lststrsplit.o ft_lststrtoarr.o ft_lstsize.o
 
 INC=./
 
