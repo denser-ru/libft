@@ -6,7 +6,7 @@
 /*   By: cayako <cayako@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 00:00:10 by cayako            #+#    #+#             */
-/*   Updated: 2019/11/01 00:23:55 by cayako           ###   ########.fr       */
+/*   Updated: 2019/11/01 01:00:32 by cayako           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,19 @@
 char	**ft_lststrtoarr(t_list *lststr)
 {
 	char	**arr;
+	char	**cur;
 
-	if (!(arr = (char **)malloc(sizeof(char *) * ft_lstsize(lststr))))
+	if (!(arr = (char **)malloc(sizeof(char *) * (ft_lstsize(lststr) + 1))))
 		return (NULL);
+	cur = arr;
 	while (lststr)
 	{
-		if (!(*arr = ft_memalloc(lststr->content_size + 1)))
+		if (!(*cur = ft_memalloc(lststr->content_size + 1)))
 			return (NULL);
-		ft_memcpy(*arr, lststr->content, lststr->content_size);
-		++arr;
+		ft_memcpy(*cur, lststr->content, lststr->content_size);
+		++cur;
 		lststr = lststr->next;
 	}
+	*cur = NULL;
 	return (arr);
 }

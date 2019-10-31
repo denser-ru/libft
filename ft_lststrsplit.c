@@ -6,7 +6,7 @@
 /*   By: cayako <cayako@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 20:49:43 by cayako            #+#    #+#             */
-/*   Updated: 2019/10/31 23:32:27 by cayako           ###   ########.fr       */
+/*   Updated: 2019/10/31 23:34:02 by cayako           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 t_list			*ft_lststrsplit(char const *s, char c)
 {
 	t_list		*root;
-	t_list		*cur;
 	const char	*e;
 
 	root = NULL;
-	cur = NULL;
 	if (!(*s))
 		return (NULL);
 	while (*s)
