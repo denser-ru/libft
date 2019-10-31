@@ -6,13 +6,13 @@
 /*   By: cayako <cayako@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 19:51:20 by cayako            #+#    #+#             */
-/*   Updated: 2019/10/31 19:51:40 by cayako           ###   ########.fr       */
+/*   Updated: 2019/10/31 19:56:27 by cayako           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstpushf(t_list **root, void *content, size_t content_size)
+void	*ft_lstpushf(t_list **root, void *content, size_t content_size)
 {
 	t_list *new;
 
@@ -20,8 +20,10 @@ void	ft_lstpushf(t_list **root, void *content, size_t content_size)
 		*root = ft_lstnew(content, content_size);
 	else
 	{
-		new = ft_lstnew(content, content_size);
+		if (!(new = ft_lstnew(content, content_size)))
+			return (NULL);
 		(*new).next = (*root);
 		*root = new;
 	}
+	return (root);
 }
