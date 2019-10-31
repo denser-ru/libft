@@ -6,7 +6,7 @@
 /*   By: cayako <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 13:26:52 by cayako            #+#    #+#             */
-/*   Updated: 2019/10/26 01:34:03 by cayako           ###   ########.fr       */
+/*   Updated: 2019/10/31 19:51:40 by cayako           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,7 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_lstcut(t_list **root, t_list *cut,
 							void (*del)(void *, size_t));
 void				ft_lstdelcontent(void *content, size_t size);
+void				ft_lstpushf(t_list **root, void *content,
+							size_t content_size);
 
 #endif

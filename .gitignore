@@ -56,5 +56,6 @@ dkms.conf
 CMakeLists.txt
 cmake-build-debug/
 
-# Main.c for tests
+# Main.c and other for tests
 main.c
+test*.c
