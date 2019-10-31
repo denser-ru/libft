@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstpushf.c                                      :+:      :+:    :+:   */
+/*   ft_lststrsplit.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cayako <cayako@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/31 19:51:20 by cayako            #+#    #+#             */
-/*   Updated: 2019/10/31 20:45:18 by cayako           ###   ########.fr       */
+/*   Created: 2019/10/31 20:49:43 by cayako            #+#    #+#             */
+/*   Updated: 2019/10/31 23:32:27 by cayako           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstpushf(t_list **root, void *content, size_t content_size)
+t_list			*ft_lststrsplit(char const *s, char c)
 {
-	t_list *new;
+	t_list		*root;
+	t_list		*cur;
+	const char	*e;
 
-	if (*root == NULL)
-		*root = ft_lstnew(content, content_size);
-	else
+	root = NULL;
+	cur = NULL;
+	if (!(*s))
+		return (NULL);
+	while (*s)
 	{
-		if (!(new = ft_lstnew(content, content_size)))
-			return (NULL);
-		(*new).next = (*root);
-		*root = new;
+		while (*s && *s == c)
+			++s;
+		if (!(e = ft_strchr(s, c)))
+			e = s + ft_strlen(s);
+		ft_lstpushb(&root, (void *)s, e - s);
+		s = e;
 	}
-	return (*root);
+	return (root);
 }
