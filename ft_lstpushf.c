@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_lstpushf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cayako <cayako@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 00:36:17 by cayako            #+#    #+#             */
-/*   Updated: 2019/11/01 00:42:52 by cayako           ###   ########.fr       */
+/*   Created: 2019/10/31 19:51:20 by cayako            #+#    #+#             */
+/*   Updated: 2019/10/31 20:45:18 by cayako           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			**ft_strsplit(char const *s, char c)
+t_list	*ft_lstpushf(t_list **root, void *content, size_t content_size)
 {
-	char	**buf;
-	t_list	*lststr;
+	t_list *new;
 
-	lststr = ft_lststrsplit(s, c);
-	buf = ft_lststrtoarr(lststr);
-	if (lststr)
-		ft_lstdel(&lststr, ft_lstdelcontent);
-	return (buf);
+	if (*root == NULL)
+		*root = ft_lstnew(content, content_size);
+	else
+	{
+		if (!(new = ft_lstnew(content, content_size)))
+			return (NULL);
+		(*new).next = (*root);
+		*root = new;
+	}
+	return (*root);
 }

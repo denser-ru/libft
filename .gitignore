@@ -50,3 +50,12 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# For CLion
+.idea
+CMakeLists.txt
+cmake-build-debug/
+
+# Main.c and other for tests
+main.c
+test*.c

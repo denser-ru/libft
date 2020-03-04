@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_lststrsplit.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cayako <cayako@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 00:36:17 by cayako            #+#    #+#             */
-/*   Updated: 2019/11/01 00:42:52 by cayako           ###   ########.fr       */
+/*   Created: 2019/10/31 20:49:43 by cayako            #+#    #+#             */
+/*   Updated: 2019/11/01 02:17:37 by cayako           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			**ft_strsplit(char const *s, char c)
+t_list			*ft_lststrsplit(char const *s, char c)
 {
-	char	**buf;
-	t_list	*lststr;
+	t_list		*root;
+	const char	*e;
 
-	lststr = ft_lststrsplit(s, c);
-	buf = ft_lststrtoarr(lststr);
-	if (lststr)
-		ft_lstdel(&lststr, ft_lstdelcontent);
-	return (buf);
+	root = NULL;
+	if (!(s))
+		return (NULL);
+	while (*s)
+	{
+		while (*s && *s == c)
+			++s;
+		if (!(e = ft_strchr(s, c)))
+			e = s + ft_strlen(s);
+		if (e != s)
+			ft_lstpushb(&root, (void *)s, e - s);
+		s = e;
+	}
+	return (root);
 }
