@@ -25,6 +25,8 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+# include "get_next_line.h"
+
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
@@ -47,6 +49,7 @@ char				*ft_strnstr(const char *haystack, const char *needle,
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_atoi(const char *str);
+int					ft_atoi_n(const char *str, size_t n);
 int					ft_isdigit(int c);
 int					ft_iswhitespace(int c);
 int					ft_isalpha(int c);
@@ -77,7 +80,9 @@ void				ft_putendl(char const *s);
 void				ft_putnbr(int n);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
+void				ft_putnstr(char const *s, size_t n);
 void				ft_putendl_fd(char const *s, int fd);
+void				ft_putnendl(char const *s, size_t n);
 void				ft_putnbr_fd(int n, int fd);
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));

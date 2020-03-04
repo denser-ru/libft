@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cayako <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/24 01:53:49 by cayako            #+#    #+#             */
+/*   Created: 2019/09/19 01:45:05 by cayako            #+#    #+#             */
 /*   Updated: 2019/10/26 01:38:29 by cayako           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+int		ft_atoi_n(const char *str, size_t n)
 {
-	char	s[13];
-	int		i;
-	long	ln;
+	long	nbr;
+	char	neg;
 
-	if (n == 0)
+	while (ft_iswhitespace(*str))
+		str++;
+	neg = (*str == '-');
+	if (*str == '+' || *str == '-')
+		str++;
+	nbr = 0;
+	while (n-- && ft_isdigit(*str))
 	{
-		ft_putchar('0');
-		return ;
+		nbr = nbr * 10 + (*str - '0');
+		if (nbr * 10 < nbr)
+			return ((neg) ? 0 : -1);
+		str++;
 	}
-	i = 11;
-	s[12] = '\0';
-	ln = n < 0 ? -(long)n : n;
-	while (ln > 0)
-	{
-		s[i] = '0' + ln % 10;
-		ln /= 10;
-		--i;
-	}
-	if (n < 0)
-		s[i--] = '-';
-	ft_putstr(&s[i + 1]);
+	return (neg ? -nbr : nbr);
 }

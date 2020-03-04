@@ -1,38 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putnendl.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cayako <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/24 01:53:49 by cayako            #+#    #+#             */
-/*   Updated: 2019/10/26 01:38:29 by cayako           ###   ########.fr       */
+/*   Created: 2020/03/04 23:59:43 by cayako            #+#    #+#             */
+/*   Updated: 2020/03/04 23:59:57 by cayako           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+void	ft_putnendl(char const *s, size_t n)
 {
-	char	s[13];
-	int		i;
-	long	ln;
-
-	if (n == 0)
-	{
-		ft_putchar('0');
-		return ;
-	}
-	i = 11;
-	s[12] = '\0';
-	ln = n < 0 ? -(long)n : n;
-	while (ln > 0)
-	{
-		s[i] = '0' + ln % 10;
-		ln /= 10;
-		--i;
-	}
-	if (n < 0)
-		s[i--] = '-';
-	ft_putstr(&s[i + 1]);
+	write(1, s, n);
+	ft_putchar('\n');
 }

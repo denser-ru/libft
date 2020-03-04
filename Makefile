@@ -6,11 +6,7 @@
 #    By: cayako <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/17 15:01:39 by cayako            #+#    #+#              #
-<<<<<<< HEAD
 #    Updated: 2020/03/04 18:33:45 by cayako           ###   ########.fr        #
-=======
-#    Updated: 2019/11/01 00:14:35 by cayako           ###   ########.fr        #
->>>>>>> a5b1832b2b316001ba6d2b512a08fe39c1141ffd
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,12 +23,9 @@ SRC=ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
 	ft_strsub.c ft_strjoin.c ft_strtrim.c ft_strsplit.c ft_itoa.c ft_putendl.c \
 	ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 	ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c \
-<<<<<<< HEAD
-	ft_lstmap.c ft_lstcut.c ft_lstdelcontent.c get_next_line.c
-=======
 	ft_lstmap.c ft_lstcut.c ft_lstdelcontent.c ft_lstpushf.c ft_lstpushb.c \
-	ft_lststrsplit.c ft_lststrtoarr.c ft_lstsize.c
->>>>>>> a5b1832b2b316001ba6d2b512a08fe39c1141ffd
+	ft_lststrsplit.c ft_lststrtoarr.c ft_lstsize.c get_next_line.c \
+	ft_putnstr.c ft_putnendl.c ft_atoi_n.c
 
 OBJ=ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o ft_memmove.o ft_memchr.o \
 	ft_memcmp.o ft_strlen.o ft_strdup.o ft_strcpy.o ft_strncpy.o ft_strcat.o \
@@ -45,12 +38,9 @@ OBJ=ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o ft_memmove.o ft_memchr.o \
 	ft_strsub.o ft_strjoin.o ft_strtrim.o ft_strsplit.o ft_itoa.o ft_putendl.o \
 	ft_putnbr.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o \
 	ft_lstnew.o ft_lstdelone.o ft_lstdel.o ft_lstadd.o ft_lstiter.o \
-<<<<<<< HEAD
-	ft_lstmap.o ft_lstcut.o ft_lstdelcontent.o get_next_line.o
-=======
 	ft_lstmap.o ft_lstcut.o ft_lstdelcontent.o ft_lstpushf.o ft_lstpushb.o \
-	ft_lststrsplit.o ft_lststrtoarr.o ft_lstsize.o
->>>>>>> a5b1832b2b316001ba6d2b512a08fe39c1141ffd
+	ft_lststrsplit.o ft_lststrtoarr.o ft_lstsize.o get_next_line.o \
+	ft_putnstr.o ft_putnendl.o ft_atoi_n.o
 
 INC=./
 
