@@ -15,20 +15,23 @@
 int		ft_atoi_n(const char *str, size_t n)
 {
 	long	nbr;
-	char	neg;
+	int	neg;
 
-	while (ft_iswhitespace(*str))
-		str++;
+	while (ft_iswhitespace(*str) && n--)
+		++str;
 	neg = (*str == '-');
 	if (*str == '+' || *str == '-')
-		str++;
+	{
+		++str;
+		--n;
+	}
 	nbr = 0;
 	while (n-- && ft_isdigit(*str))
 	{
 		nbr = nbr * 10 + (*str - '0');
 		if (nbr * 10 < nbr)
 			return ((neg) ? 0 : -1);
-		str++;
+		++str;
 	}
-	return (neg ? -nbr : nbr);
+	return (neg ? (int)(-nbr) : (int)nbr);
 }
