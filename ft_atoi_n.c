@@ -15,7 +15,7 @@
 int		ft_atoi_n(const char *str, size_t n)
 {
 	long	nbr;
-	int	neg;
+	int		neg;
 
 	while (ft_iswhitespace(*str) && n--)
 		++str;
