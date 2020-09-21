@@ -100,5 +100,6 @@ t_list				*ft_lstpushb(t_list **root, void *content,
 t_list				*ft_lststrsplit(char const *s, char c);
 char				**ft_lststrtoarr(t_list *lststr);
 int					ft_lstsize(t_list *list);
+int					ft_itoa_mem_d(void *dest, unsigned int nb);
 
 #endif
