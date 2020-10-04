@@ -6,4 +6,4 @@
 	url = https://github.com/denser-ru/get_next_line
 [submodule "get_next_line"]
 	path = get_next_line
-	url = https://github.com/denser-ru/get_next_line
+	url = git@github.com:denser-ru/get_next_line.git
