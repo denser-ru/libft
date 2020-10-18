@@ -29,5 +29,5 @@ int		ft_itoa_mem_d(void *dest, unsigned int nb)
 		*(char*)(dest + nb - i - 1) = (char)buf[i];
 		--i;
 	}
-	return(nb);
+	return (nb);
 }
