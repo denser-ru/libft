@@ -15,6 +15,8 @@ NAME=libft.a
 SRCDIR	= ./src
 INCDIR	= ./inc
 OBJDIR  = ./obj/
+RAW_DIRS = $(shell find $(SRCDIR) -mindepth 1 -type d)
+SRCDIRS = $(RAW_DIRS:./src/%=%)
 
 FT_IS		= ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
 				ft_iswhitespace.c
@@ -36,7 +38,10 @@ FT_STR		= ft_strcat.c ft_strcmp.c ft_strdup.c ft_striteri.c ft_strlen.c \
 FT_OTHERS	= ft_atoi.c ft_atoi_n.c ft_bzero.c  ft_itoa.c ft_itoa_mem_d.c \
 				ft_tolower.c ft_toupper.c
 GNL			= get_next_line.c
-SRCS		= $(FT_IS) $(FT_MEM) $(FT_LST) $(FT_PUT) $(FT_STR) $(FT_OTHERS)
+PRNTF		= ft_parsing.c ft_pf_utils.c ft_printf.c ft_put_digit.c ft_put_f.c \
+   				ft_put_oxup.c ft_put_src.c ft_putarg.c
+SRCS		= $(FT_IS) $(FT_MEM) $(FT_LST) $(FT_PUT) $(FT_STR) $(FT_OTHERS) \
+				$(PRNTF)
 
 SRC		= $(addprefix $(SRCDIR)/is/,$(FT_IS))
 SRC		+= $(addprefix $(SRCDIR)/mem/,$(FT_MEM))
@@ -45,21 +50,26 @@ SRC		+= $(addprefix $(SRCDIR)/put/,$(FT_PUT))
 SRC		+= $(addprefix $(SRCDIR)/str/,$(FT_STR))
 SRC		+= $(addprefix $(SRCDIR)/others/,$(FT_OTHERS))
 SRC		+= $(addprefix $(SRCDIR)/get_next_line/,$(GNL))
+SRC		+= $(addprefix $(SRCDIR)/ft_printf/,$(PRNTF))
 
-OBJ		= $(addprefix $(OBJDIR),$(SRCS:.c=.o))
+#OBJ		= $(addprefix $(OBJDIR),$(SRCS:.c=.o))
+OBJ		= $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 
-INCS	= libft.h get_next_line.h
+INCS	= libft.h get_next_line.h ft_printf.h
 INC		= $(addprefix $(INCDIR)/,$(INCS))
 
 all: $(NAME)
 
 obj:
 	mkdir -p $(OBJDIR)
+	mkdir -p $(addprefix $(OBJDIR)/,$(SRCDIRS))
 
-$(OBJDIR)%.o: $(SRC) $(INC) | obj
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	@echo $(SRC)
+	sleep 5
 	$(CC) $(CFLAGS) -I $(INCDIR) -o $@ -c $<
 
-$(NAME): $(SRC) $(INC) $(OBJ)
+$(NAME): $(OBJ) | obj
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
