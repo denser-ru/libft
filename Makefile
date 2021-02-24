@@ -19,7 +19,7 @@ INC=./
 
 all: $(NAME)
 
-$(NAME): $(SRC) libft.h
+$(NAME): $(SRC) inc/libft.h
 	gcc -c -Wall -Wextra -Werror $(SRC) -I$(INC)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
