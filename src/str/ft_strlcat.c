@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cayako <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/03 15:57:33 by cayako            #+#    #+#             */
-/*   Updated: 2020/03/04 18:32:54 by cayako           ###   ########.fr       */
+/*   Created: 2019/09/18 16:41:28 by cayako            #+#    #+#             */
+/*   Updated: 2019/10/26 01:38:29 by cayako           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include "libft.h"
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
-# define BUFF_SIZE 512
-
-typedef struct	s_fdn
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int			fd;
-	t_list		*lstline;
-	void		*buf;
-	void		*div;
-	void		*tail;
-	size_t		size;
-	char		eof;
-}				t_fdn;
+	size_t	l1;
+	size_t	l2;
 
-int				get_next_line(const int fd, char **line);
-
-#endif
+	l1 = ft_strlen(dst);
+	l2 = ft_strlen(src);
+	if (size > l1)
+		ft_strncat(dst, src, size - l1 - 1);
+	else
+		return (l2 + size);
+	return (l1 + l2);
+}

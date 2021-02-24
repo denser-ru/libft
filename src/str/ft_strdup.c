@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cayako <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/03 15:57:33 by cayako            #+#    #+#             */
-/*   Updated: 2020/03/04 18:32:54 by cayako           ###   ########.fr       */
+/*   Created: 2019/09/18 12:16:07 by cayako            #+#    #+#             */
+/*   Updated: 2019/10/26 01:38:29 by cayako           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include "libft.h"
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
-# define BUFF_SIZE 512
-
-typedef struct	s_fdn
+char	*ft_strdup(const char *s1)
 {
-	int			fd;
-	t_list		*lstline;
-	void		*buf;
-	void		*div;
-	void		*tail;
-	size_t		size;
-	char		eof;
-}				t_fdn;
+	size_t	len;
+	char	*d;
 
-int				get_next_line(const int fd, char **line);
-
-#endif
+	len = ft_strlen(s1);
+	if (!(d = (char *)malloc(len + 1)))
+		return (NULL);
+	d[len] = '\0';
+	while (len--)
+		d[len] = s1[len];
+	return (d);
+}

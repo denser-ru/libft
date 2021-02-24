@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cayako <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/03 15:57:33 by cayako            #+#    #+#             */
-/*   Updated: 2020/03/04 18:32:54 by cayako           ###   ########.fr       */
+/*   Created: 2019/09/19 14:56:56 by cayako            #+#    #+#             */
+/*   Updated: 2019/10/26 01:38:29 by cayako           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include "libft.h"
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
-# define BUFF_SIZE 512
-
-typedef struct	s_fdn
+char		*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int			fd;
-	t_list		*lstline;
-	void		*buf;
-	void		*div;
-	void		*tail;
-	size_t		size;
-	char		eof;
-}				t_fdn;
+	char	*buf;
+	int		i;
 
-int				get_next_line(const int fd, char **line);
-
-#endif
+	if (!s)
+		return (NULL);
+	i = 0;
+	if (!(buf = (char *)malloc(ft_strlen(s) + 1)))
+		return (NULL);
+	while (s[i++])
+		buf[i - 1] = (*f)(i - 1, s[i - 1]);
+	buf[i - 1] = '\0';
+	return (buf);
+}

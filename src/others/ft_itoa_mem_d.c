@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_itoa_mem_d.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cayako <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/03 15:57:33 by cayako            #+#    #+#             */
-/*   Updated: 2020/03/04 18:32:54 by cayako           ###   ########.fr       */
+/*   Created: 2020/09/23 23:29:54 by cayako            #+#    #+#             */
+/*   Updated: 2020/09/26 01:38:29 by cayako           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include "libft.h"
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
-# define BUFF_SIZE 512
-
-typedef struct	s_fdn
+int		ft_itoa_mem_d(void *dest, unsigned int nb)
 {
-	int			fd;
-	t_list		*lstline;
-	void		*buf;
-	void		*div;
-	void		*tail;
-	size_t		size;
-	char		eof;
-}				t_fdn;
+	int		i;
+	char	buf[12];
 
-int				get_next_line(const int fd, char **line);
-
-#endif
+	i = 0;
+	while (nb > 0)
+	{
+		buf[i++] = (char)(nb % 10 + '0');
+		nb /= 10;
+	}
+	nb = i--;
+	while (i >= 0)
+	{
+		*(char*)(dest + nb - i - 1) = (char)buf[i];
+		--i;
+	}
+	return (nb);
+}

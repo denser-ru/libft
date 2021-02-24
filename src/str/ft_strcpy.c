@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cayako <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/03 15:57:33 by cayako            #+#    #+#             */
-/*   Updated: 2020/03/04 18:32:54 by cayako           ###   ########.fr       */
+/*   Created: 2019/09/18 12:36:59 by cayako            #+#    #+#             */
+/*   Updated: 2019/10/26 01:38:29 by cayako           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include "libft.h"
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
-# define BUFF_SIZE 512
-
-typedef struct	s_fdn
+char	*ft_strcpy(char *dst, const char *src)
 {
-	int			fd;
-	t_list		*lstline;
-	void		*buf;
-	void		*div;
-	void		*tail;
-	size_t		size;
-	char		eof;
-}				t_fdn;
+	int i;
 
-int				get_next_line(const int fd, char **line);
-
-#endif
+	i = 0;
+	while (src[i])
+	{
+		dst[i] = src[i];
+		++i;
+	}
+	dst[i] = '\0';
+	return (dst);
+}
