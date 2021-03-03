@@ -12,6 +12,9 @@
 
 NAME=libft.a
 
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+
 SRCDIR	= ./src
 INCDIR	= ./inc
 OBJDIR  = ./obj
