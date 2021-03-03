@@ -14,7 +14,7 @@ NAME=libft.a
 
 SRCDIR	= ./src
 INCDIR	= ./inc
-OBJDIR  = ./obj/
+OBJDIR  = ./obj
 RAW_DIRS = $(shell find $(SRCDIR) -mindepth 1 -type d)
 SRCDIRS = $(RAW_DIRS:./src/%=%)
 
@@ -43,17 +43,17 @@ PRNTF		= ft_parsing.c ft_pf_utils.c ft_printf.c ft_put_digit.c ft_put_f.c \
 SRCS		= $(FT_IS) $(FT_MEM) $(FT_LST) $(FT_PUT) $(FT_STR) $(FT_OTHERS) \
 				$(PRNTF)
 
-SRC		= $(addprefix $(SRCDIR)/is/,$(FT_IS))
-SRC		+= $(addprefix $(SRCDIR)/mem/,$(FT_MEM))
-SRC		+= $(addprefix $(SRCDIR)/lst/,$(FT_LST))
-SRC		+= $(addprefix $(SRCDIR)/put/,$(FT_PUT))
-SRC		+= $(addprefix $(SRCDIR)/str/,$(FT_STR))
-SRC		+= $(addprefix $(SRCDIR)/others/,$(FT_OTHERS))
-SRC		+= $(addprefix $(SRCDIR)/get_next_line/,$(GNL))
-SRC		+= $(addprefix $(SRCDIR)/ft_printf/,$(PRNTF))
+SRC		= $(addprefix is/,$(FT_IS))
+SRC		+= $(addprefix mem/,$(FT_MEM))
+SRC		+= $(addprefix lst/,$(FT_LST))
+SRC		+= $(addprefix put/,$(FT_PUT))
+SRC		+= $(addprefix str/,$(FT_STR))
+SRC		+= $(addprefix others/,$(FT_OTHERS))
+SRC		+= $(addprefix get_next_line/,$(GNL))
+SRC		+= $(addprefix ft_printf/,$(PRNTF))
 
-#OBJ		= $(addprefix $(OBJDIR),$(SRCS:.c=.o))
-OBJ		= $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
+OBJ		= $(addprefix $(OBJ_DIR),$(SRC:.c=.o))
+OBJS	= $(addprefix $(OBJDIR)/,$(OBJ))
 
 INCS	= libft.h get_next_line.h ft_printf.h
 INC		= $(addprefix $(INCDIR)/,$(INCS))
@@ -64,17 +64,36 @@ obj:
 	mkdir -p $(OBJDIR)
 	mkdir -p $(addprefix $(OBJDIR)/,$(SRCDIRS))
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.c
-	@echo $(SRC)
-	sleep 5
+$(OBJDIR)/is/%.o: $(SRCDIR)/is/%.c $(INC) | obj
 	$(CC) $(CFLAGS) -I $(INCDIR) -o $@ -c $<
 
-$(NAME): $(OBJ) | obj
-	ar rc $(NAME) $(OBJ)
+$(OBJDIR)/mem/%.o: $(SRCDIR)/mem/%.c
+	$(CC) $(CFLAGS) -I $(INCDIR) -o $@ -c $<
+
+$(OBJDIR)/lst/%.o: $(SRCDIR)/lst/%.c
+	$(CC) $(CFLAGS) -I $(INCDIR) -o $@ -c $<
+
+$(OBJDIR)/put/%.o: $(SRCDIR)/put/%.c
+	$(CC) $(CFLAGS) -I $(INCDIR) -o $@ -c $<
+
+$(OBJDIR)/str/%.o: $(SRCDIR)/str/%.c
+	$(CC) $(CFLAGS) -I $(INCDIR) -o $@ -c $<
+
+$(OBJDIR)/others/%.o: $(SRCDIR)/others/%.c
+	$(CC) $(CFLAGS) -I $(INCDIR) -o $@ -c $<
+
+$(OBJDIR)/get_next_line/%.o: $(SRCDIR)/get_next_line/%.c
+	$(CC) $(CFLAGS) -I $(INCDIR) -o $@ -c $<
+
+$(OBJDIR)/ft_printf/%.o: $(SRCDIR)/ft_printf/%.c
+	$(CC) $(CFLAGS) -I $(INCDIR) -o $@ -c $<
+
+$(NAME): $(OBJS)
+	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 
 clean:
-	rm -f $(OBJ)
+	rm -rf $(OBJDIR)
 
 fclean: clean
 	rm -f $(NAME)
