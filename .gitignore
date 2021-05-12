@@ -53,11 +53,10 @@ dkms.conf
 
 # For CLion
 .idea
-CMakeLists.txt
 cmake-build-debug/
 
 # Main.c and other for tests
-main.c
+src/tests/test_ft_printf.c
 test*.c
 
 # Anjuta
