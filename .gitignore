@@ -56,8 +56,7 @@ dkms.conf
 cmake-build-debug/
 
 # Main.c and other for tests
-src/tests/test_ft_printf.c
-test*.c
+
 
 # Anjuta
 *~
