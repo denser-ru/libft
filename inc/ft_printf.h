@@ -15,101 +15,46 @@
 # define FT_PRINTF_H
 
 # include "libft.h"
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
 # include <stdarg.h>
 
-# define BUFF_SIZE 10
-# define CT_NRM "\x1b[0;0m"
-# define CT_RED "\x1b[0;31m"
-# define CT_GRN "\x1b[0;32m"
-# define CT_YEL "\x1b[0;33m"
-# define CT_BLU "\x1b[0;34m"
-# define CT_MAG "\x1b[0;35m"
-# define CT_CYN "\x1b[0;36m"
-# define CT_WHT "\x1b[0;37m"
-# define CT_BRED "\x1b[1;31m"
-# define CT_BGRN "\x1b[1;32m"
-# define CT_BYEL "\x1b[1;33m"
-# define CT_BBLU "\x1b[1;34m"
-# define CT_BMAG "\x1b[1;35m"
-# define CT_BCYN "\x1b[1;36m"
-# define CT_BWHT "\x1B[1;37m"
-# define CT_DRED "\x1b[2;31m"
-# define CT_DGRN "\x1b[2;32m"
-# define CT_DYEL "\x1b[2;33m"
-# define CT_DBLU "\x1b[2;34m"
-# define CT_DMAG "\x1b[2;35m"
-# define CT_DCYN "\x1b[2;36m"
-# define CT_DWHT "\x1B[2;37m"
-# define CT_IRED "\x1b[3;31m"
-# define CT_IGRN "\x1b[3;32m"
-# define CT_IYEL "\x1b[3;33m"
-# define CT_IBLU "\x1b[3;34m"
-# define CT_IMAG "\x1b[3;35m"
-# define CT_ICYN "\x1b[3;36m"
-# define CT_IWHT "\x1B[3;37m"
-# define CT_URED "\x1b[4;31m"
-# define CT_UGRN "\x1b[4;32m"
-# define CT_UYEL "\x1b[4;33m"
-# define CT_UBLU "\x1b[4;34m"
-# define CT_UMAG "\x1b[4;35m"
-# define CT_UCYN "\x1b[4;36m"
-# define CT_UWHT "\x1B[4;37m"
+# define PF_ZERO	1
+# define PF_PLUS	2
+# define PF_ALIGN	4
+# define PF_SPACE	8
+# define PF_SHARP	16
+# define PF_PREC	32
+# define PF_H		64
+# define PF_HH		128
+# define PF_L		256
+# define PF_LL		512
+# define PF_ML		1024
 
-typedef struct s_convs
+typedef struct		s_pf
 {
-	int		sharp;
-	int		zero;
-	int		minus;
-	int		space;
-	int		plus;
-	int		width;
-	int		precision;
-	int		length;
-	char	conversion;
-}					t_convs;
+	va_list			*arg;
+	char			*start;
+	char			*cur;
+	char			*next;
+	int				i;
+	int				width;
+	int				precision;
+	int				z;
+	int				flags;
+}					t_pf;
 
-int					ft_printf(const char *fmt, ...);
-int					is_flag(char c);
-int					is_length(char c);
-int					is_conversion(int c);
-size_t				letspars_flags(const char *fmt, size_t index,
-						t_convs *p_convs);
-size_t				letspars_width(const char *fmt, size_t index,
-						t_convs *p_convs, va_list *ap);
-size_t				letspars_precision(const char *fmt, size_t index,
-						t_convs *p_convs, va_list *ap);
-size_t				letspars_length(const char *fmt, size_t index,
-						t_convs *p_convs);
-size_t				letspars_conversion(const char *fmt, size_t index,
-						t_convs *p_convs);
-size_t				letsprint_csp(t_convs *p_convs, va_list *ap);
-size_t				letsprint_dioux(t_convs *p_convs, va_list *ap);
-size_t				letsprint_f(t_convs *p_convs, va_list *ap);
-size_t				ft_putnbrull(unsigned long long n);
-char				*ft_lltoa_base(long long n, int b);
-char				*ft_ulltoa_base(unsigned long long n, int b);
-char				*get_p(const char *s, int prec);
-size_t				not_pval(t_convs *p);
-size_t				pval_p(t_convs *p, const char *str);
-size_t				print_diu(t_convs *p_convs, va_list *ap);
-size_t				print_ox(t_convs *p_convs, va_list *ap);
-size_t				print_s(t_convs *p_convs, char *sval);
-size_t				print_c(t_convs *p_convs, char cval);
-size_t				print_p(t_convs *p_convs, unsigned long pval);
-size_t				letsprint_percent(t_convs *p_convs, va_list	*ap);
-void				printstralig(char *c, int *arr, char ch);
-void				ft_printcharcount(char ch, size_t count);
-int					ft_unumlen(unsigned long long num);
-char				*get_str_float(t_convs *p_convs, long double dval);
-long long			get_arg(t_convs *p_convs, va_list *ap);
-unsigned long long	get_uarg(t_convs *p_convs, va_list *ap);
-size_t				print_char_n(char c, int num);
-int					comp_out(int comp, int first, int second);
-void				ft_compare_out_x(int comp, int flag, char *str,
-						char *temp_str);
-size_t				compll_out(int comp, unsigned long long val);
+int					ft_printf(const char *format, ...);
+void				ft_parsing(t_pf *pf, char *format);
+void				ft_putarg(t_pf *pf, char *format);
+
+void				ft_putchar_n(char c, int i);
+unsigned long long	ft_get_max_base(int base);
+int					ft_get_nblen_base(unsigned long long nb, int base);
+void				ft_put_oxup(t_pf *pf, char f, int base);
+void				ft_put_atoi_base(unsigned long long nb, int base, char f);
+void				ft_put_digit(t_pf *pf, long long nb, int size, int prec);
+void				ft_put_percent(t_pf *pf);
+void				ft_put_pf_char(t_pf *pf, char c);
+void				ft_put_pf_str(t_pf *pf, char *s);
+void				ft_put_f(t_pf *pf);
 
 #endif

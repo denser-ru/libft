@@ -15,9 +15,12 @@ NAME=libft.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
+TEST_PRNTF = test_ft_printf
+
 SRCDIR	= ./src
 INCDIR	= ./inc
 OBJDIR  = ./obj
+TESTS_DIR = ./src/tests
 RAW_DIRS = $(shell find $(SRCDIR) -mindepth 1 -type d)
 SRCDIRS = $(RAW_DIRS:./src/%=%)
 
@@ -40,10 +43,8 @@ FT_STR		= ft_strcat.c ft_strcmp.c ft_strdup.c ft_striteri.c ft_strlen.c \
 				ft_strncpy.c ft_strnstr.c ft_strstr.c
 FT_OTHERS	= ft_atoi.c ft_atoi_n.c ft_bzero.c  ft_itoa.c ft_itoa_mem_d.c \
 				ft_tolower.c ft_toupper.c
-PRNTF		= ft_printf.c ft_putnbrull.c ft_ulltoa_base.c ft_unumlen.c \
-				is_whats.c letspars_what.c letsprint_percent.c letsprint.c \
-              	print_csp.c print_diu.c print_f.c print_ox.c utils_f.c \
-              	utils_printf.c utils_ox.c ft_lltoa_base.c ft_extra_csp.c
+PRNTF		= ft_printf.c ft_parsing.c ft_putarg.c ft_pf_utils.c \
+				ft_put_digit.c ft_put_src.c ft_put_oxup.c ft_put_f.c
 TERM		= ft_frame.c ft_term.c ft_get_term_size.c ft_set_atr.c
 SRCS		= $(FT_IS) $(FT_MEM) $(FT_LST) $(FT_PUT) $(FT_STR) $(FT_OTHERS) \
 				$(PRNTF) $(TERM)
@@ -95,6 +96,9 @@ $(OBJDIR)/term/%.o: $(SRCDIR)/term/%.c
 $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
+
+$(TEST_PRNTF): $(NAME) $(TESTS_DIR)/$(TEST_PRNTF).c
+	$(CC) $(TESTS_DIR)/$(TEST_PRNTF).c $(NAME) -I $(INCDIR) -o $(TEST_PRNTF)
 
 clean:
 	rm -rf $(OBJDIR)

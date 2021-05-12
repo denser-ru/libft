@@ -3,6 +3,8 @@ project(libft C)
 
 set(CMAKE_C_STANDARD 99)
 
+include_directories(inc)
+
 add_executable(test_ft_printf
 
         src/is/ft_isalnum.c
@@ -81,15 +83,15 @@ add_executable(test_ft_printf
         src/term/ft_set_atr.c
         src/term/ft_term.c
 
-        src/ft_printf/inc/ft_printf.h
-        src/ft_printf/src/ft_parsing.c
-        src/ft_printf/src/ft_pf_utils.c
-        src/ft_printf/src/ft_printf.c
-        src/ft_printf/src/ft_put_digit.c
-        src/ft_printf/src/ft_put_f.c
-        src/ft_printf/src/ft_put_oxup.c
-        src/ft_printf/src/ft_put_src.c
-        src/ft_printf/src/ft_putarg.c
+        inc/ft_printf.h
+        src/ft_printf/ft_parsing.c
+        src/ft_printf/ft_pf_utils.c
+        src/ft_printf/ft_printf.c
+        src/ft_printf/ft_put_digit.c
+        src/ft_printf/ft_put_f.c
+        src/ft_printf/ft_put_oxup.c
+        src/ft_printf/ft_put_src.c
+        src/ft_printf/ft_putarg.c
 
         src/tests/test_ft_printf.c
         )
