@@ -45,6 +45,7 @@ add_executable(test_ft_printf
         src/put/ft_putchar_fd.c
         src/put/ft_putendl.c
         src/put/ft_putendl_fd.c
+        src/put/ft_putmem.c
         src/put/ft_putnbr.c
         src/put/ft_putnbr_fd.c
         src/put/ft_putnbr_to_mem.c

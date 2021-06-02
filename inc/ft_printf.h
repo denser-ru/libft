@@ -29,6 +29,8 @@
 # define PF_LL		512
 # define PF_ML		1024
 
+# define FT_PUTMEM	4096
+
 typedef struct		s_pf
 {
 	va_list			*arg;
@@ -40,6 +42,7 @@ typedef struct		s_pf
 	int				precision;
 	int				z;
 	int				flags;
+	t_putmem		*put;
 }					t_pf;
 
 int					ft_printf(const char *format, ...);
