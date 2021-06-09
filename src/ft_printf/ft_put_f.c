@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int			ft_put_lli(unsigned long long nb, int size)
+int			ft_put_lli(t_pf *pf, unsigned long long nb, int size)
 {
 	unsigned long long	div;
 	int					len;
@@ -23,17 +23,17 @@ int			ft_put_lli(unsigned long long nb, int size)
 		div *= 10;
 	while ((div /= 10) && (size--) && (++len))
 	{
-		ft_putchar('0' + nb / div);
+		ft_putchar_mem(pf->put, '0' + nb / div);
 		nb = nb - (nb / div) * div;
 	}
 	return (len);
 }
 
-int			ft_put_llf(long double nb, int prec)
+int			ft_put_llf(t_pf *pf, long double nb, int prec)
 {
 	while (prec--)
 		nb *= 10;
-	ft_put_lli((unsigned long long)(nb + 0.5), prec);
+	ft_put_lli(pf, (unsigned long long)(nb + 0.5), prec);
 	return (prec);
 }
 
@@ -54,16 +54,16 @@ void		ft_get_f(t_pf *pf, long long *n, long double *d)
 void		ft_f_prefix(t_pf *pf, int *len, int prec, long long n)
 {
 	if (!(pf->flags & PF_ALIGN) && !(pf->flags & PF_ZERO))
-		ft_putchar_n(' ', len[0]);
+		ft_putchar_n(pf->put, ' ', len[0]);
 	if (((n < 0) || (pf->flags & PF_PLUS)) && ++(pf->i))
-		ft_putchar(n < 0 ? '-' : '+');
+		ft_putchar_mem(pf->put, n < 0 ? '-' : '+');
 	if (((pf->flags & PF_SPACE) && !(pf->flags & PF_PLUS) && n >= 0))
-		ft_putchar(' ');
+		ft_putchar_mem(pf->put, ' ');
 	if (!(pf->flags & PF_ALIGN) && (pf->flags & PF_ZERO))
-		ft_putchar_n('0', len[0]);
-	pf->i += ft_put_lli(n < 0 ? -n : n, len[1]) + len[0] + prec + 1;
+		ft_putchar_n(pf->put, '0', len[0]);
+	pf->i += ft_put_lli(pf, n < 0 ? -n : n, len[1]) + len[0] + prec + 1;
 	if ((prec || (pf->flags & PF_PREC)))
-		ft_putchar('.');
+		ft_putchar_mem(pf->put, '.');
 }
 
 void		ft_put_f(t_pf *pf)
@@ -83,8 +83,8 @@ void		ft_put_f(t_pf *pf)
 	len[0] -= ((pf->flags & PF_PLUS) || (pf->flags & PF_SPACE) || (n < 0));
 	len[0] = len[0] < 0 ? 0 : len[0];
 	ft_f_prefix(pf, len, prec, n);
-	ft_put_llf(d < 0 ? -d : d, prec);
+	ft_put_llf(pf, d < 0 ? -d : d, prec);
 	if (pf->flags & PF_ALIGN)
-		ft_putchar_n(' ', len[0]);
-	ft_putchar_n('0', prec - len[2]);
+		ft_putchar_n(pf->put, ' ', len[0]);
+	ft_putchar_n(pf->put, '0', prec - len[2]);
 }

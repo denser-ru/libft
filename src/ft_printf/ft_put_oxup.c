@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void		ft_put_atoi_base(unsigned long long int nb, int base, char f)
+void		ft_put_atoi_base(t_pf *pf, unsigned long long int nb, int base, char f)
 {
 	unsigned long long		hex;
 	unsigned long long		div;
@@ -21,7 +21,7 @@ void		ft_put_atoi_base(unsigned long long int nb, int base, char f)
 
 	if (nb < (unsigned long long)base)
 	{
-		ft_putchar(abc[nb + (f == 'X' ? 16 : 0)]);
+		ft_putchar_mem(pf->put, abc[nb + (f == 'X' ? 16 : 0)]);
 		return ;
 	}
 	hex = nb / base;
@@ -34,25 +34,25 @@ void		ft_put_atoi_base(unsigned long long int nb, int base, char f)
 	while ((div /= base))
 	{
 		hex = nb2 / div;
-		ft_putchar(abc[hex + (f == 'X' ? 16 : 0)]);
+		ft_putchar_mem(pf->put, abc[hex + (f == 'X' ? 16 : 0)]);
 		nb2 -= hex * div;
 	}
-	ft_putchar(abc[nb + (f == 'X' ? 16 : 0)]);
+	ft_putchar_mem(pf->put, abc[nb + (f == 'X' ? 16 : 0)]);
 }
 
 void		ft_put_prefix(t_pf *pf, char f, int *width, unsigned long long nb)
 {
 	if (!(pf->flags & PF_ALIGN) && !(pf->flags & PF_ZERO))
-		ft_putchar_n(' ', *width);
-	ft_putchar_n(f == 'p' && !(pf->flags & PF_PLUS) ? ' ' : '+',
+		ft_putchar_n(pf->put, ' ', *width);
+	ft_putchar_n(pf->put, f == 'p' && !(pf->flags & PF_PLUS) ? ' ' : '+',
 				((pf->flags & PF_PLUS) || (pf->flags & PF_SPACE)) && f == 'p');
 	if ((pf->flags & PF_SHARP) && f == 'o' && nb)
-		ft_putchar('0');
+		ft_putchar_mem(pf->put, '0');
 	else if ((pf->flags & PF_SHARP) && f != 'u' && nb)
-		ft_putnstr(f == 'X' ? "0X" : "0x", 2);
+		ft_putnstr_mem(pf->put, f == 'X' ? "0X" : "0x", 2);
 	*width = *width < 0 ? 0 : *width;
 	if (!(pf->flags & PF_ALIGN) && (pf->flags & PF_ZERO))
-		ft_putchar_n('0', *width);
+		ft_putchar_n(pf->put, '0', *width);
 }
 
 void		ft_put_x(t_pf *pf, char f, int base, unsigned long long int nb)
@@ -74,11 +74,11 @@ void		ft_put_x(t_pf *pf, char f, int base, unsigned long long int nb)
 	ft_put_prefix(pf, f, &width, nb);
 	pf->i += width + size + prec;
 	if ((pf->flags & PF_PREC) && prec)
-		ft_putchar_n('0', prec);
+		ft_putchar_n(pf->put, '0', prec);
 	if (!z)
-		ft_put_atoi_base(nb, base, f);
+		ft_put_atoi_base(pf, nb, base, f);
 	if (width && (pf->flags & PF_ALIGN))
-		ft_putchar_n(' ', width);
+		ft_putchar_n(pf->put, ' ', width);
 }
 
 void		ft_put_oxup(t_pf *pf, char f, int base)

@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void				ft_putchar_n(char c, int i)
+void				ft_putchar_n(t_putmem *out, char c, int i)
 {
 	while (i--)
-		ft_putchar(c);
+		ft_putchar_mem(out, c);
 }
 
 unsigned long long	ft_get_max_base(int base)

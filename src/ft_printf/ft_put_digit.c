@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 long long	ft_digit_modifer(t_pf *pf)
 {
@@ -31,15 +31,15 @@ void		ft_digit_prefix(t_pf *pf, int prec, int sgn)
 
 	if (!(pf->flags & PF_ALIGN) && (!(pf->flags & PF_ZERO)
 			|| (pf->flags & PF_PREC)))
-		ft_putchar_n(' ', pf->width);
+		ft_putchar_n(pf->put, ' ', pf->width);
 	c = (pf->flags & PF_SPACE) ? ' ' : 0;
 	if ((pf->flags & PF_PLUS) || sgn)
 		c = sgn ? '-' : '+';
-	ft_putchar_n(c, (pf->flags & PF_PLUS) || sgn || (pf->flags & PF_SPACE));
+	ft_putchar_n(pf->put, c, (pf->flags & PF_PLUS) || sgn || (pf->flags & PF_SPACE));
 	if (!(pf->flags & PF_ALIGN) && (pf->flags & PF_ZERO)
 			&& !(pf->flags & PF_PREC))
-		ft_putchar_n('0', pf->width);
-	ft_putchar_n('0', prec);
+		ft_putchar_n(pf->put, '0', pf->width);
+	ft_putchar_n(pf->put, '0', prec);
 }
 
 void		ft_put_digit(t_pf *pf, long long nb, int size, int prec)
@@ -58,6 +58,6 @@ void		ft_put_digit(t_pf *pf, long long nb, int size, int prec)
 	ft_digit_prefix(pf, prec, sgn);
 	pf->i += pf->width + prec + size;
 	if (!z)
-		ft_put_atoi_base(nb, 10, 'd');
-	ft_putchar_n(' ', (pf->width) * !(!(pf->flags & PF_ALIGN)));
+		ft_put_atoi_base(pf, nb, 10, 'd');
+	ft_putchar_n(pf->put, ' ', (pf->width) * !(!(pf->flags & PF_ALIGN)));
 }

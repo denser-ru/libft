@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 static void	ft_clear_args(t_pf *pf)
 {
@@ -23,7 +23,7 @@ int	ft_printf(const char *format, ...)
 {
 	va_list		arg;
 	t_pf		*pf;
-	size_t		i;
+	int			i;
 
 	pf = (t_pf *)ft_memalloc(sizeof(t_pf));
 	pf->put = (t_putmem *)ft_memalloc(sizeof(t_putmem));
@@ -35,15 +35,16 @@ int	ft_printf(const char *format, ...)
 	while (pf->next)
 	{
 		pf->i += (int)(pf->next - pf->cur);
-		ft_putnstr(pf->cur, pf->next - pf->cur);
+		ft_putnstr_mem(pf->put, pf->cur, pf->next - pf->cur);
 		pf->cur = pf->next + 1;
 		ft_parsing(pf, pf->cur);
 		ft_clear_args(pf);
 		pf->next = ft_strchr(pf->cur, '%');
 	}
-	ft_putnstr(pf->cur, ft_strchr(pf->cur, '\0') - pf->cur);
-	i = pf->i + ft_strchr(pf->cur, '\0') - pf->cur;
+	ft_putnstr_mem(pf->put, pf->cur, ft_strchr(pf->cur, '\0') - pf->cur);
+	ft_putnstr(pf->put->mem, pf->put->count);
+	i = pf->put->count;
 	ft_memdel((void **)&pf->put);
 	free(pf);
-	return ((int)i);
+	return (i);
 }

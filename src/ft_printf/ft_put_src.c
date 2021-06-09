@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 void		ft_put_percent(t_pf *pf)
 {
@@ -18,10 +18,10 @@ void		ft_put_percent(t_pf *pf)
 
 	space = pf->width > 1 ? pf->width - 1 : 0;
 	if (!(pf->flags & PF_ALIGN))
-		ft_putchar_n(' ', space);
-	ft_putchar('%');
+		ft_putchar_n(pf->put, ' ', space);
+	ft_putchar_mem(pf->put, '%');
 	if (pf->flags & PF_ALIGN)
-		ft_putchar_n(' ', space);
+		ft_putchar_n(pf->put, ' ', space);
 	(pf->i) += 1 + space;
 }
 
@@ -32,10 +32,10 @@ void		ft_put_pf_char(t_pf *pf, char c)
 	c = va_arg(*(pf->arg), int);
 	space = pf->width > 1 ? pf->width - 1 : 0;
 	if (!(pf->flags & PF_ALIGN))
-		ft_putchar_n(' ', space);
-	ft_putchar(c);
+		ft_putchar_n(pf->put, ' ', space);
+	ft_putchar_mem(pf->put, c);
 	if (pf->flags & PF_ALIGN)
-		ft_putchar_n(' ', space);
+		ft_putchar_n(pf->put, ' ', space);
 	(pf->i) += 1 + space;
 }
 
@@ -47,7 +47,7 @@ void		ft_put_pf_str(t_pf *pf, char *s)
 	s = va_arg(*(pf->arg), char*);
 	if (!s && (pf->i += 6))
 	{
-		ft_putstr("(null)");
+		ft_putstr_mem(pf->put, "(null)");
 		return ;
 	}
 	len = ft_strlen(s);
@@ -55,9 +55,9 @@ void		ft_put_pf_str(t_pf *pf, char *s)
 		len = len > pf->precision ? pf->precision : len;
 	space = pf->width > len ? pf->width - len : 0;
 	if (!(pf->flags & PF_ALIGN))
-		ft_putchar_n(' ', space);
-	ft_putnstr(s, len);
+		ft_putchar_n(pf->put, ' ', space);
+	ft_putnstr_mem(pf->put, s, len);
 	if (pf->flags & PF_ALIGN)
-		ft_putchar_n(' ', space);
+		ft_putchar_n(pf->put, ' ', space);
 	(pf->i) += len + space;
 }
