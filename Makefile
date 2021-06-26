@@ -31,7 +31,7 @@ FT_MEM		= ft_memalloc.c ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c \
 FT_LST		= ft_lstadd.c ft_lstdelcontent.c ft_lstmap.c ft_lstpushf.c \
 				ft_lststrtoarr.c ft_lstcut.c ft_lstdelone.c ft_lstnew.c \
 				ft_lstsize.c ft_lstdel.c ft_lstiter.c ft_lstpushb.c \
-				ft_lststrsplit.c
+				ft_lststrsplit.c ft_lstputstr.c
 FT_PUT		= ft_putchar.c ft_putendl.c ft_putnbr.c ft_putnendl.c ft_putstr.c \
 				ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putnstr.c \
 				ft_putstr_fd.c ft_putnbr_to_mem.c ft_putmem.c
