@@ -48,17 +48,22 @@ struct s_map
 };
 
 // map/ft_map_add.c
-t_map	*ft_map_add(t_map *map, char *key, char *value);
+t_map		*ft_map_add(t_map *map, char *key, char *value);
 
 // map/ft_map_new.c
-t_map	*ft_map_new(void);
+t_map		*ft_map_new(void);
 
 // map/ft_map_getbykey.c
-t_list	*ft_map_getbykey(t_map *map, t_list *value, char *key);
+t_list		*ft_map_getbykey(t_map *map, t_list *value, char *key);
+t_map_elm	*ft_map_get_elm(t_map *map, char *key);
 
 // map/void	ft_map_print_all.c
-void	ft_map_print_all(t_map_elm *arr);
+void		ft_map_print_all(t_map_elm *arr);
 
 // map/ft_map_from_env.c
-void	ft_map_from_env(t_map *map, char **env);
+void		ft_map_from_env(t_map *map, char **env);
+
+// map/ft_map_del_elm.c
+int			ft_map_del_elm(t_map *map, char *key);
+
 #endif

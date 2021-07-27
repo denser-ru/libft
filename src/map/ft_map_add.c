@@ -4,6 +4,7 @@
 static t_map_elm	*new_key(t_map *map, char *key, char *value,
 						  t_map_elm *elm);
 static t_map_elm	*find_current_location(t_map_elm *elm, char *key);
+inline static void	insert_elm(t_map *map, t_map_elm *cur, t_map_elm *in);
 
 t_map	*ft_map_add(t_map *map, char *key, char *value)
 {
@@ -24,19 +25,22 @@ t_map	*ft_map_add(t_map *map, char *key, char *value)
 		map->tail = cur;
 	}
 	else
-	{
-		if (in->prev)
-			in->prev->next = cur;
-		else
-			map->root = cur;
-		if (cur != in)
-		{
-			cur->prev = in->prev;
-			cur->next = in;
-			in->prev = cur;
-		}
-	}
+		insert_elm(map, cur, in);
 	return (map);
+}
+
+inline static void	insert_elm(t_map *map, t_map_elm *cur, t_map_elm *in)
+{
+	if (in->prev)
+		in->prev->next = cur;
+	else
+		map->root = cur;
+	if (cur != in)
+	{
+		cur->prev = in->prev;
+		cur->next = in;
+		in->prev = cur;
+	}
 }
 
 static t_map_elm	*find_current_location(t_map_elm *elm, char *key)
@@ -44,7 +48,7 @@ static t_map_elm	*find_current_location(t_map_elm *elm, char *key)
 	char	*cur;
 
 	cur = elm->key;
-	while (elm && cur && ft_strcmp(cur, key) <= 0)
+	while (cur && ft_strcmp(cur, key) <= 0)
 	{
 		elm = elm->next;
 		if (!elm)
