@@ -15,7 +15,7 @@
 t_list	*ft_lststrsplit(char const *s, char c)
 {
 	t_list		*root;
-	const char	*e;
+	char		*e;
 
 	root = NULL;
 	if (!(s))
@@ -26,7 +26,7 @@ t_list	*ft_lststrsplit(char const *s, char c)
 			++s;
 		e = ft_strchr(s, c);
 		if (!e)
-			e = s + ft_strlen(s);
+			e = (char *)(s + ft_strlen(s));
 		if (e != s)
 			ft_lstpushb(&root, (void *)s, e - s);
 		s = e;
