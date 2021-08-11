@@ -107,4 +107,6 @@ int					ft_putstr_mem(t_putmem *out, char const *s);
 int					ft_putnstr_mem(t_putmem *out, char const *s, size_t n);
 int					ft_putnbr_mem(t_putmem *out, int n);
 
+int					ft_getch();
+
 #endif
