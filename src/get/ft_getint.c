@@ -12,14 +12,14 @@
 
 #include "libft.h"
 
-int	ft_getch()
+int	ft_getint()
 {
-	int				r;
-	unsigned char	c;
+    int				r;
+    int             c;
 
-	r = (int)read(0, &c, sizeof(c));
-	if (r < 0)
-		return (r);
-	else
-		return (c);
+    r = (int)read(0, &c, sizeof(c));
+    if (r < 0)
+        return (r);
+    else
+        return (c);
 }

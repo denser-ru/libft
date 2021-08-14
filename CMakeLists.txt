@@ -79,6 +79,8 @@ add_executable(test_ft_printf
         src/str/ft_strstr.c
         src/str/ft_strsub.c
         src/str/ft_strtrim.c
+        src/get/ft_getch.c
+        src/get/ft_getink.c
         src/term/ft_frame.c
         src/term/ft_get_term_size.c
         src/term/ft_set_atr.c
