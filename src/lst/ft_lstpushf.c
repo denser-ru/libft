@@ -23,7 +23,7 @@ t_list	*ft_lstpushf(t_list **root, void *content, size_t content_size)
 		new = ft_lstnew(content, content_size);
 		if (!new)
 			return (NULL);
-		(*new).next = (*root);
+		new->next = *root;
 		*root = new;
 	}
 	return (*root);

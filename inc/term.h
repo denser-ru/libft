@@ -14,6 +14,8 @@
 # define TERM_H
 
 # include "libft.h"
+# include "term.h"
+#include <termios.h>
 
 # define ESC "\033"
 
@@ -76,6 +78,8 @@
 # define B_CYAN		46
 # define B_WHITE	47
 
+typedef struct termios	ft_term;
+
 void				get_term_size(unsigned int *width, unsigned int *height);
 size_t				ft_term_goto_mem(char *out, unsigned int row,
 						   unsigned int col);
@@ -85,5 +89,8 @@ void				ft_term_set_2atr(int atr1, int atr2);
 void				ft_term_set_3atr(int atr1, int atr2, int atr3);
 void				ft_term_cmd_atr(int atr, char c);
 void				ft_term_cmd_2atr(int atr1, int atr2, char c);
+
+void                ft_term_get_xy(size_t *xy);
+void	            ft_term_icanon(ft_term	*last_term, ft_term	*term);
 
 #endif

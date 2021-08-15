@@ -99,6 +99,7 @@ t_list				*ft_lststrsplit(char const *s, char c);
 char				**ft_lststrtoarr(t_list *lststr);
 int					ft_lstsize(t_list *list);
 void				ft_lstputstr(t_list *lst);
+void	            ft_lstputendl(t_list *lst);
 int					ft_itoa_mem_d(void *dest, unsigned int nb);
 int					ft_putnbr_to_mem(char *out, int n);
 

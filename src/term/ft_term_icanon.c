@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstputstr.c                                     :+:      :+:    :+:   */
+/*   ft_term.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cayako <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: cayako <cayako@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/27 00:51:56 by cayako            #+#    #+#             */
-/*   Updated: 2021/06/27 00:57:29 by cayako           ###   ########.fr       */
+/*   Created: 2020/11/06 01:15:07 by cayako            #+#    #+#             */
+/*   Updated: 2020/11/16 12:43:36 by cayako           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+# include "term.h"
+# include "ft_frame.h"
+# include "libft.h"
 
-
-void	ft_lstputstr(t_list *lst)
+void	ft_term_icanon(ft_term	*last_term, ft_term	*term)
 {
-    if (lst)
-        ft_putnstr(lst->content, lst->content_size);
+    tcgetattr(0, term);
+    tcgetattr(0, last_term);
+    term->c_lflag &= ~(ICANON | ECHO);
+    tcsetattr(0, TCSANOW, term);
 }

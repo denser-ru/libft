@@ -85,6 +85,8 @@ add_executable(test_ft_printf
         src/term/ft_get_term_size.c
         src/term/ft_set_atr.c
         src/term/ft_term.c
+        src/term/ft_term_get_xy.c
+        src/term/ft_term_icanon.c
 
         inc/ft_printf.h
         src/ft_printf/ft_parsing.c

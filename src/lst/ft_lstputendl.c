@@ -13,8 +13,11 @@
 #include "libft.h"
 
 
-void	ft_lstputstr(t_list *lst)
+void	ft_lstputendl(t_list *lst)
 {
     if (lst)
+    {
         ft_putnstr(lst->content, lst->content_size);
+        ft_putchar('\n');
+    }
 }
