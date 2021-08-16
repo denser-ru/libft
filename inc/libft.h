@@ -100,6 +100,8 @@ char				**ft_lststrtoarr(t_list *lststr);
 int					ft_lstsize(t_list *list);
 void				ft_lstputstr(t_list *lst);
 void	            ft_lstputendl(t_list *lst);
+void				ft_lstputstr_fd(t_list *lst, int fd);
+void	            ft_lstputendl_fd(t_list *lst, int fd);
 int					ft_itoa_mem_d(void *dest, unsigned int nb);
 int					ft_putnbr_to_mem(char *out, int n);
 
@@ -107,6 +109,8 @@ int					ft_putchar_mem(t_putmem *out, char const c);
 int					ft_putstr_mem(t_putmem *out, char const *s);
 int					ft_putnstr_mem(t_putmem *out, char const *s, size_t n);
 int					ft_putnbr_mem(t_putmem *out, int n);
+void				ft_putnstr_fd(char const *s, size_t n, int fd);
+void				ft_putnendl_fd(char const *s, size_t n, int fd);
 
 int					ft_getch();
 int                 ft_getint();

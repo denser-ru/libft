@@ -26,6 +26,8 @@ add_executable(test_ft_printf
         src/lst/ft_lstsize.c
         src/lst/ft_lststrsplit.c
         src/lst/ft_lststrtoarr.c
+        src/lst/ft_lstputstr_fd.c
+        src/lst/ft_lstputendl_fd.c
         src/mem/ft_memalloc.c
         src/mem/ft_memccpy.c
         src/mem/ft_memchr.c
@@ -53,6 +55,8 @@ add_executable(test_ft_printf
         src/put/ft_putnstr.c
         src/put/ft_putstr.c
         src/put/ft_putstr_fd.c
+        src/put/ft_putnstr_fd.c
+        src/put/ft_putnendl_fd.c
         src/str/ft_strcat.c
         src/str/ft_strchr.c
         src/str/ft_strclr.c

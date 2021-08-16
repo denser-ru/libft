@@ -31,17 +31,19 @@ FT_MEM		= ft_memalloc.c ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c \
 FT_LST		= ft_lstadd.c ft_lstdelcontent.c ft_lstmap.c ft_lstpushf.c \
 				ft_lststrtoarr.c ft_lstcut.c ft_lstdelone.c ft_lstnew.c \
 				ft_lstsize.c ft_lstdel.c ft_lstiter.c ft_lstpushb.c \
-				ft_lststrsplit.c ft_lstputstr.c ft_lstputendl.c
+				ft_lststrsplit.c ft_lstputstr.c ft_lstputendl.c \
+				ft_lstputstr_fd.c ft_lstputendl_fd.c
 FT_PUT		= ft_putchar.c ft_putendl.c ft_putnbr.c ft_putnendl.c ft_putstr.c \
 				ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putnstr.c \
-				ft_putstr_fd.c ft_putnbr_to_mem.c ft_putmem.c
+				ft_putstr_fd.c ft_putnbr_to_mem.c ft_putmem.c \
+				ft_putnendl_fd.c ft_putnstr_fd.c
 FT_STR		= ft_strcat.c ft_strcmp.c ft_strdup.c ft_striteri.c ft_strlen.c \
 				ft_strncat.c ft_strnequ.c ft_strrchr.c ft_strsub.c \
 				ft_strchr.c ft_strcpy.c ft_strequ.c ft_strjoin.c ft_strmap.c \
 				ft_strncmp.c ft_strnew.c ft_strsplit.c ft_strtrim.c \
 				ft_strclr.c ft_strdel.c ft_striter.c ft_strlcat.c ft_strmapi.c \
 				ft_strncpy.c ft_strnstr.c ft_strstr.c
-FT_GET		= ft_getch.c ft_getint.c
+FT_GET		= ft_getch.c ft_getint.c get_next_line.c
 FT_OTHERS	= ft_atoi.c ft_atoi_n.c ft_bzero.c  ft_itoa.c ft_itoa_mem_d.c \
 				ft_tolower.c ft_toupper.c
 PRNTF		= ft_printf.c ft_parsing.c ft_putarg.c ft_pf_utils.c \
