@@ -61,7 +61,7 @@ t_map_elm	*ft_map_get_elm(t_map *map, char *key);
 void		ft_map_print_all(t_map_elm *arr);
 
 // map/ft_map_from_env.c
-void		ft_map_from_env(t_map *map, char **env);
+int			ft_map_from_env(t_map *map, char **env);
 
 // map/ft_map_del_elm.c
 int			ft_map_del_elm(t_map *map, char *key);

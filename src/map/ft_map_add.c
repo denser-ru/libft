@@ -11,6 +11,11 @@ t_map	*ft_map_add(t_map *map, char *key, char *value)
 	t_map_elm *cur;
 	t_map_elm *in;
 
+	if (map->size + ft_strlen(key) + ft_strlen(value) + 2 >= FT_MAP_BUF)
+	{
+		ft_strncpy(map->err,"memory MAP is full", FT_ERR_LEN);
+		return (NULL);
+	}
 	cur = map->last;
 	in = find_current_location(map->root, key);
 	new_key(map, key, value, map->last);

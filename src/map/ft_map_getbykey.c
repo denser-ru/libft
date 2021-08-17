@@ -24,7 +24,7 @@ t_map_elm	*ft_map_get_elm(t_map *map, char *key)
 	t_map_elm	*elm;
 
 	elm = map->root;
-	while (elm)
+	while (elm && elm->key)
 	{
 		if (!ft_strncmp(key, elm->key, elm->size_key + 1))
 			return (elm);
