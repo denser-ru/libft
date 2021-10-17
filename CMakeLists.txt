@@ -64,6 +64,7 @@ add_executable(test_ft_printf
         src/str/ft_strcpy.c
         src/str/ft_strdel.c
         src/str/ft_strdup.c
+        src/str/ft_strndup.c
         src/str/ft_strequ.c
         src/str/ft_striter.c
         src/str/ft_striteri.c
