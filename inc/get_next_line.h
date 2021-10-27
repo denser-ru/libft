@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cayako <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: cayako <cayako@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/03 15:57:33 by cayako            #+#    #+#             */
 /*   Updated: 2020/03/04 18:32:54 by cayako           ###   ########.fr       */

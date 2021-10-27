@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_getch.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cayako <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: cayako <cayako@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 19:54:26 by cayako            #+#    #+#             */
 /*   Updated: 2021/08/08 01:38:29 by cayako           ###   ########.fr       */

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cayako <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: cayako <cayako@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/23 23:29:54 by cayako            #+#    #+#             */
 /*   Updated: 2019/10/26 01:38:29 by cayako           ###   ########.fr       */

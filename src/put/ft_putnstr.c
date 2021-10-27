@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cayako <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: cayako <cayako@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 23:56:27 by cayako            #+#    #+#             */
 /*   Updated: 2020/03/04 23:56:32 by cayako           ###   ########.fr       */

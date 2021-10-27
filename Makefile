@@ -3,7 +3,7 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cayako <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: cayako <cayako@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/17 15:01:39 by cayako            #+#    #+#              #
 #    Updated: 2020/03/04 18:33:45 by cayako           ###   ########.fr        #
