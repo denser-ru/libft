@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstputstr.c                                     :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cayako <cayako@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/27 00:51:56 by cayako            #+#    #+#             */
-/*   Updated: 2021/10/27 14:12:54 by denser           ###   ########.fr       */
+/*   Created: 2019/09/17 15:58:04 by cayako            #+#    #+#             */
+/*   Updated: 2021/10/27 12:56:08 by denser           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstputendl_fd(t_list *lst, int fd)
+long long	ft_abs(long long n)
 {
-	if (lst)
-		ft_putnendl_fd(lst->content, lst->content_size, fd);
+	if (n < 0)
+		n = -n;
+	return (n);
+}
+
+long double	ft_abs_ld(long double n)
+{
+	if (n < 0)
+		n = -n;
+	return (n);
 }

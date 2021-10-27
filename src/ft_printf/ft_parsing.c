@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static void		ft_get_width(t_pf *pf, char **format)
+static void	ft_get_width(t_pf *pf, char **format)
 {
 	pf->width = ft_atoi(*format);
 	while (ft_strchr("0123456789", **format))
@@ -20,7 +20,7 @@ static void		ft_get_width(t_pf *pf, char **format)
 	--(*format);
 }
 
-static void		ft_get_precision(t_pf *pf, char **format)
+static void	ft_get_precision(t_pf *pf, char **format)
 {
 	pf->flags = pf->flags | PF_PREC;
 	++(*format);
@@ -30,7 +30,7 @@ static void		ft_get_precision(t_pf *pf, char **format)
 	--(*format);
 }
 
-static void		ft_get_flag(t_pf *pf, char **format)
+static void	ft_get_flag(t_pf *pf, char **format)
 {
 	if (**format == '0')
 		pf->flags = pf->flags | PF_ZERO;
@@ -44,7 +44,7 @@ static void		ft_get_flag(t_pf *pf, char **format)
 		pf->flags = pf->flags | PF_SHARP;
 }
 
-static void		ft_get_modifier(t_pf *pf, char **format)
+static void	ft_get_modifier(t_pf *pf, char **format)
 {
 	if (**format == 'h')
 	{
@@ -64,7 +64,7 @@ static void		ft_get_modifier(t_pf *pf, char **format)
 		pf->flags = pf->flags | PF_ML;
 }
 
-void			ft_parsing(t_pf *pf, char *format)
+void	ft_parsing(t_pf *pf, char *format)
 {
 	while (*format && !ft_memchr("diouxXfcsp%", *format, 11))
 	{

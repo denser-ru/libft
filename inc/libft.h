@@ -118,4 +118,7 @@ int                 ft_getint();
 
 void 				ft_pass_whitespace(char **s);
 
+long long 			ft_abs(long long n);
+long double			ft_abs_ld(long double n);
+
 #endif

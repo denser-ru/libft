@@ -12,9 +12,8 @@
 
 #include "libft.h"
 
-
 void	ft_lstputstr_fd(t_list *lst, int fd)
 {
-    if (lst)
-        ft_putnstr_fd(lst->content, lst->content_size, fd);
+	if (lst)
+		ft_putnstr_fd(lst->content, lst->content_size, fd);
 }

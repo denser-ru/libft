@@ -6,7 +6,7 @@
 #    By: cayako <cayako@student.21-school.ru>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/17 15:01:39 by cayako            #+#    #+#              #
-#    Updated: 2020/03/04 18:33:45 by cayako           ###   ########.fr        #
+#    Updated: 2021/10/27 19:45:11 by denser           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,9 +43,9 @@ FT_STR		= ft_strcat.c ft_strcmp.c ft_strdup.c ft_striteri.c ft_strlen.c \
 				ft_strncmp.c ft_strnew.c ft_strsplit.c ft_strtrim.c \
 				ft_strclr.c ft_strdel.c ft_striter.c ft_strlcat.c ft_strmapi.c \
 				ft_strncpy.c ft_strnstr.c ft_strstr.c ft_strndup.c
-FT_GET		= ft_getch.c ft_getint.c get_next_line.c
+FT_GET		= ft_getch.c ft_getint.c ft_gnl_light.c
 FT_OTHERS	= ft_atoi.c ft_atoi_n.c ft_bzero.c  ft_itoa.c ft_itoa_mem_d.c \
-				ft_tolower.c ft_toupper.c ft_pass_whitespace.c
+				ft_tolower.c ft_toupper.c ft_pass_whitespace.c ft_abs.c
 PRNTF		= ft_printf.c ft_parsing.c ft_putarg.c ft_pf_utils.c \
 				ft_put_digit.c ft_put_src.c ft_put_oxup.c ft_put_f.c
 TERM		= ft_frame.c ft_term.c ft_get_term_size.c ft_set_atr.c ft_term_get_xy.c ft_term_icanon.c
@@ -109,9 +109,6 @@ $(OBJDIR)/map/%.o: $(SRCDIR)/map/%.c
 $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
-
-$(TEST_PRNTF): $(NAME) $(TESTS_DIR)/$(TEST_PRNTF).c
-	$(CC) $(TESTS_DIR)/$(TEST_PRNTF).c $(NAME) -I $(INCDIR) -o $(TEST_PRNTF)
 
 clean:
 	rm -rf $(OBJDIR)

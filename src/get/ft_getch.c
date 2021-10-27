@@ -6,13 +6,13 @@
 /*   By: cayako <cayako@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 19:54:26 by cayako            #+#    #+#             */
-/*   Updated: 2021/08/08 01:38:29 by cayako           ###   ########.fr       */
+/*   Updated: 2021/10/27 16:25:44 by denser           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_getch()
+int	ft_getch(void)
 {
 	int				r;
 	unsigned char	c;

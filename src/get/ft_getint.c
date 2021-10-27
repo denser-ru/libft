@@ -6,20 +6,20 @@
 /*   By: cayako <cayako@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 19:54:26 by cayako            #+#    #+#             */
-/*   Updated: 2021/08/08 01:38:29 by cayako           ###   ########.fr       */
+/*   Updated: 2021/10/27 19:32:14 by denser           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_getint()
+int	ft_getint(void)
 {
-    int				r;
-    int             c;
+	int		r;
+	int		c;
 
-    r = (int)read(0, &c, sizeof(c));
-    if (r < 0)
-        return (r);
-    else
-        return (c);
+	r = (int)read(0, &c, sizeof(c));
+	if (r < 0)
+		return (r);
+	else
+		return (c);
 }

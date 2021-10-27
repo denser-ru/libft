@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void  ft_pass_whitespace(char **s)
+void	ft_pass_whitespace(char **s)
 {
 	while (*s && **s && ft_iswhitespace(**s))
 		++*s;

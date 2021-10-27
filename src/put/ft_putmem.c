@@ -6,7 +6,7 @@
 /*   By: cayako <cayako@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 03:03:40 by cayako            #+#    #+#             */
-/*   Updated: 2019/10/26 01:38:29 by cayako           ###   ########.fr       */
+/*   Updated: 2021/10/27 14:14:29 by denser           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	ft_putnstr_mem(t_putmem *out, char const *s, size_t n)
 	return ((int)n);
 }
 
-inline static void to_mem(t_putmem *out, char s[13], int i)
+inline static void	to_mem(t_putmem *out, char s[13], int i)
 {
 	ft_memcpy(out->p, &s[i + 1], 12 - i);
 	out->count += 12 - i;
