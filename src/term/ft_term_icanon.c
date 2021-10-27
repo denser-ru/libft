@@ -12,7 +12,7 @@
 
 #include "term.h"
 
-void	ft_term_icanon(ft_term	*last_term, ft_term	*term)
+void	ft_term_icanon(t_term	*last_term, t_term	*term)
 {
 	tcgetattr(0, term);
 	tcgetattr(0, last_term);

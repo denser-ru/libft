@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_MAP_ARR_H
+#ifndef FT_MAP_H
 
-# define FT_MAP_ARR_H
+# define FT_MAP_H
 
 # include "libft.h"
 

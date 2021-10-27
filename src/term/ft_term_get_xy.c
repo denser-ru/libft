@@ -17,8 +17,8 @@ void	ft_term_get_xy(size_t *xy)
 {
 	char	buf[24];
 	char	*p;
-	ft_term	last_term;
-	ft_term	term;
+	t_term	last_term;
+	t_term	term;
 
 	ft_term_icanon(&last_term, &term);
 	xy[0] = 0;

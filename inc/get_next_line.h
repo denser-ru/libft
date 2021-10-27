@@ -18,9 +18,9 @@
 # include <sys/uio.h>
 # include <unistd.h>
 # define BUFF_SIZE		512
-# define FT_LINE_BUF	512
+# define FT_LINE_BUF	4
 
-typedef struct	s_fdn
+typedef struct s_fdn
 {
 	int			fd;
 	t_list		*lstline;
@@ -35,6 +35,6 @@ typedef struct	s_fdn
 ** int				get_next_line(const int fd, char **line);
 */
 
-int	ft_gnl_light(int fd, char *line);
+int	ft_gnl_light(int fd, char **line);
 
 #endif

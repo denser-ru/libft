@@ -33,7 +33,7 @@
 
 typedef struct s_putmem		t_putmem;
 
-typedef struct		s_pf
+typedef struct s_pf
 {
 	va_list			*arg;
 	char			*start;
@@ -62,7 +62,8 @@ void				ft_putchar_n(t_putmem *out, char c, int i);
 unsigned long long	ft_get_max_base(int base);
 int					ft_get_nblen_base(unsigned long long nb, int base);
 void				ft_put_oxup(t_pf *pf, char f, int base);
-void				ft_put_atoi_base(t_pf *pf, unsigned long long nb, int base, char f);
+void				ft_put_atoi_base(t_pf *pf, unsigned long long nb,
+						int base, char f);
 void				ft_put_digit(t_pf *pf, long long nb, int size, int prec);
 void				ft_put_percent(t_pf *pf);
 void				ft_put_pf_char(t_pf *pf, char c);
