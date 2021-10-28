@@ -43,7 +43,7 @@ FT_STR		= ft_strcat.c ft_strcmp.c ft_strdup.c ft_striteri.c ft_strlen.c \
 				ft_strncmp.c ft_strnew.c ft_strsplit.c ft_strtrim.c \
 				ft_strclr.c ft_strdel.c ft_striter.c ft_strlcat.c ft_strmapi.c \
 				ft_strncpy.c ft_strnstr.c ft_strstr.c ft_strndup.c
-FT_GET		= ft_getch.c ft_getint.c ft_gnl_light.c
+FT_GET		= ft_getch.c ft_getint.c ft_gnl.c
 FT_OTHERS	= ft_atoi.c ft_atoi_n.c ft_bzero.c  ft_itoa.c ft_itoa_mem_d.c \
 				ft_tolower.c ft_toupper.c ft_pass_whitespace.c ft_abs.c
 PRNTF		= ft_printf.c ft_parsing.c ft_putarg.c ft_pf_utils.c \

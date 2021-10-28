@@ -6,7 +6,7 @@
 /*   By: cayako <cayako@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 19:54:26 by cayako            #+#    #+#             */
-/*   Updated: 2021/10/27 19:56:17 by denser           ###   ########.fr       */
+/*   Updated: 2021/10/28 12:24:04 by denser           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,34 +24,36 @@ static int	ft_mem_resize(char **mem, size_t size1, size_t size2)
 	if (!*mem)
 	{
 		*mem = (char *)ft_memalloc(size2);
-		return (size2);
+		return ((int)size2);
 	}
 	new = (char *)malloc(size2);
 	ft_memcpy(new, *mem, size1);
 	ft_bzero(new + size1, size2 - size1);
 	free(*mem);
 	*mem = new;
-	return (size2);
+	return ((int)(size2 - size1));
 }
 
-int	ft_gnl_light(int fd, char **line)
+int	ft_gnl(int fd, char **line)
 {
 	static char		buf[FT_LINE_BUF + 1];
 	static char		*p = buf;
 	size_t			len;
 
-	len = read(fd, p, FT_LINE_BUF);
+	if (p == buf)
+		len = read(fd, p, FT_LINE_BUF);
 	if (!*line)
 		if (ft_mem_resize(line, 0, FT_LINE_BUF + 1) == -1)
 			return (-1);
 	len = get_line(*line, p, FT_LINE_BUF);
-	if (!len)
-		return (0);
+	if (!len && p == buf)
+		return (-1);
 	p += len;
 	while (*p != '\n')
 	{
 		p = buf;
-		ft_mem_resize(line, len, len + read(fd, buf, FT_LINE_BUF) + 1);
+		if (ft_mem_resize(line, len + 1, len + read(fd, buf, FT_LINE_BUF) + 1) < 0)
+			break ;
 		p += get_line(*line + len, p, FT_LINE_BUF);
 		len += p - buf;
 	}
