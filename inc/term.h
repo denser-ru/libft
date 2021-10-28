@@ -6,7 +6,7 @@
 /*   By: cayako <cayako@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 04:49:01 by cayako            #+#    #+#             */
-/*   Updated: 2021/10/28 11:52:06 by denser           ###   ########.fr       */
+/*   Updated: 2021/10/28 13:25:03 by denser           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ typedef struct termios	t_term;
 
 void				get_term_size(unsigned int *width, unsigned int *height);
 size_t				ft_term_goto_mem(char *out, unsigned int row,
-						   unsigned int col);
+						unsigned int col);
 void				ft_term_goto(unsigned int col, unsigned int row);
 void				ft_term_set_atr(int atr);
 void				ft_term_set_2atr(int atr1, int atr2);
