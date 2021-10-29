@@ -57,6 +57,8 @@ add_executable(test_ft_printf
         src/put/ft_putstr_fd.c
         src/put/ft_putnstr_fd.c
         src/put/ft_putnendl_fd.c
+        src/put/ft_putstr2d.c
+        src/put/ft_putendl2d.c
         src/str/ft_strcat.c
         src/str/ft_strchr.c
         src/str/ft_strclr.c
