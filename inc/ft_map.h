@@ -6,7 +6,7 @@
 /*   By: cayako <cayako@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/18 15:07:37 by cayako            #+#    #+#             */
-/*   Updated: 2021/10/28 13:25:03 by cayako           ###   ########.fr       */
+/*   Updated: 2021/11/08 18:30:01 by denser           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 # include "libft.h"
 
-# define FT_MAP_BUF		4096
+# define FT_MAP_BUF		40960
 # define FT_ERR_LEN		255
 # define FT_MAP_MAX_ELM	100
 

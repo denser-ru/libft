@@ -20,4 +20,3 @@ void	ft_putstr2d(char **s)
 		++s;
 	}
 }
-

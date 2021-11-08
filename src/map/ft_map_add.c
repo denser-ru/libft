@@ -6,7 +6,7 @@
 /*   By: cayako <cayako@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 14:20:20 by cayako            #+#    #+#             */
-/*   Updated: 2021/10/28 18:56:00 by cayako           ###   ########.fr       */
+/*   Updated: 2021/11/08 18:18:23 by denser           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ t_map	*ft_map_add(t_map *map, char *key, char *value)
 	t_map_elm	*cur;
 	t_map_elm	*in;
 
-	if (map->size + ft_strlen(key) + ft_strlen(value) + 2 >= FT_MAP_BUF)
+	if (map->size + ft_strlen(key) + ft_strlen(value) + 2 >= FT_MAP_BUF
+		|| map->count + map->deleted + 1 >= FT_MAP_MAX_ELM)
 	{
 		ft_strncpy(map->err, "memory MAP is full", FT_ERR_LEN);
 		return (NULL);

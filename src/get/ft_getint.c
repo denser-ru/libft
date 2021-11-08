@@ -6,7 +6,7 @@
 /*   By: cayako <cayako@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 19:54:26 by cayako            #+#    #+#             */
-/*   Updated: 2021/10/27 19:32:14 by cayako           ###   ########.fr       */
+/*   Updated: 2021/11/05 16:05:26 by denser           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	ft_getint(void)
 	int		r;
 	int		c;
 
+	c = 0;
 	r = (int)read(0, &c, sizeof(c));
 	if (r < 0)
 		return (r);
