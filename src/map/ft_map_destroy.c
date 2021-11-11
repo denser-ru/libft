@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map_new.c                                       :+:      :+:    :+:   */
+/*   ft_map_destroy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cayako <cayako@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/27 14:19:44 by cayako            #+#    #+#             */
-/*   Updated: 2021/10/28 18:56:00 by cayako           ###   ########.fr       */
+/*   Created: 2021/11/11 11:15:56 by cayako            #+#    #+#             */
+/*   Updated: 2021/11/11 18:03:59 by denser           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "ft_map.h"
 
-t_map	*ft_map_new(void)
-{
-	t_map	*map;
+static void	free_del_list(t_2list **list);
 
-	map = (t_map *)ft_memalloc(sizeof(t_map));
-	map->tail = map->arr;
-	map->last = map->arr;
-	map->root = map->arr;
-	return (map);
+int	ft_map_destroy(t_map **map)
+{
+	if (!*map)
+		return (1);
+	ft_2lstdel(&(*map)->big_value, ft_lstdelcontent);
+	free_del_list(&(*map)->del_list);
+	free(*map);
+	*map = NULL;
+	return (0);
+}
+static void	free_del_list(t_2list **list)
+{
+	if (*list)
+	{
+		free_del_list(&(*list)->next);
+		free(*list);
+		*list = NULL;
+	}
 }

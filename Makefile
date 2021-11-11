@@ -33,6 +33,8 @@ FT_LST		= ft_lstadd.c ft_lstdelcontent.c ft_lstmap.c ft_lstpushf.c \
 				ft_lstsize.c ft_lstdel.c ft_lstiter.c ft_lstpushb.c \
 				ft_lststrsplit.c ft_lstputstr.c ft_lstputendl.c \
 				ft_lstputstr_fd.c ft_lstputendl_fd.c
+FT_LST2		= 	ft_2lstcut.c ft_2lstdel.c ft_2lstdelone.c ft_2lstinsert.c \
+                ft_2lstnew.c ft_2lstpushb.c ft_2lstpushf.c
 FT_PUT		= ft_putchar.c ft_putendl.c ft_putnbr.c ft_putnendl.c ft_putstr.c \
 				ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putnstr.c \
 				ft_putstr_fd.c ft_putnbr_to_mem.c ft_putmem.c \
@@ -50,13 +52,14 @@ PRNTF		= ft_printf.c ft_parsing.c ft_putarg.c ft_pf_utils.c \
 				ft_put_digit.c ft_put_src.c ft_put_oxup.c ft_put_f.c
 TERM		= ft_frame.c ft_term.c ft_get_term_size.c ft_set_atr.c ft_term_get_xy.c ft_term_icanon.c
 MAP			= ft_map_add.c ft_map_getbykey.c ft_map_new.c ft_map_print_all.c \
-				ft_map_del_elm.c
+				ft_map_del_elm.c ft_map_set.c ft_map_destroy.c
 SRCS		= $(FT_IS) $(FT_MEM) $(FT_LST) $(FT_PUT) $(FT_STR) $(FT_GET) \
 				$(FT_OTHERS) $(PRNTF) $(TERM) $(MAP)
 
 SRC		= $(addprefix is/,$(FT_IS))
 SRC		+= $(addprefix mem/,$(FT_MEM))
 SRC		+= $(addprefix lst/,$(FT_LST))
+SRC		+= $(addprefix lst2/,$(FT_LST2))
 SRC		+= $(addprefix put/,$(FT_PUT))
 SRC		+= $(addprefix str/,$(FT_STR))
 SRC		+= $(addprefix others/,$(FT_OTHERS))
@@ -85,6 +88,8 @@ $(OBJDIR)/mem/%.o: $(SRCDIR)/mem/%.c
 $(OBJDIR)/lst/%.o: $(SRCDIR)/lst/%.c
 	$(CC) $(CFLAGS) -I $(INCDIR) -o $@ -c $<
 
+$(OBJDIR)/lst2/%.o: $(SRCDIR)/lst2/%.c
+	$(CC) $(CFLAGS) -I $(INCDIR) -o $@ -c $<
 $(OBJDIR)/put/%.o: $(SRCDIR)/put/%.c
 	$(CC) $(CFLAGS) -I $(INCDIR) -o $@ -c $<
 

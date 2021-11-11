@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_2lstnew.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cayako <cayako@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/25 19:55:55 by cayako            #+#    #+#             */
-/*   Updated: 2019/10/26 01:38:29 by cayako           ###   ########.fr       */
+/*   Updated: 2021/11/09 13:13:17 by denser           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+t_2list	*ft_2lstnew(void const *content, size_t content_size)
 {
-	t_list		*list;
+	t_2list		*list;
 
-	list = (t_list *)ft_memalloc(sizeof(*list));
+	list = (t_2list *)ft_memalloc(sizeof(*list));
 	if (!list)
 		return (NULL);
 	if (!content)
