@@ -6,7 +6,7 @@
 /*   By: cayako <cayako@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 11:47:17 by cayako            #+#    #+#             */
-/*   Updated: 2021/11/09 14:57:59 by denser           ###   ########.fr       */
+/*   Updated: 2021/11/12 13:34:28 by denser           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_map	*ft_map_set(t_map *map, char *key, char *value)
 	if (elm->b_value)
 	{
 		ft_2lstcut(&map->big_value, elm->b_value, ft_lstdelcontent);
-		elm->b_value = ft_2lstnew(value, ft_strlen(value));
+		elm->b_value = ft_2lstpushf(&map->big_value, value, ft_strlen(value));
 		if (!elm->b_value)
 		{
 			ft_strncpy(map->err, "can`t get memory for ft_2lstnew()",
@@ -32,6 +32,9 @@ t_map	*ft_map_set(t_map *map, char *key, char *value)
 		}
 	}
 	else
+	{
+		elm->size_value = ft_strlen(value);
 		ft_strcpy(elm->value, value);
+	}
 	return (map);
 }
