@@ -13,25 +13,17 @@
 #include "libft.h"
 #include "ft_map.h"
 
-static int	check_key(char *key, t_map_elm *elm);
-static int	check_b_key(char *key, t_map_elm *elm);
-
 t_list	*ft_map_getbykey(t_map *map, t_list *value, char *key)
 {
 	t_map_elm	*elm;
-	int			(*f)(char *, t_map_elm *);
 
 	elm = map->root;
-	if (ft_strlen(key))
-		f = check_key;
-	else
-		f = check_b_key;
-	while (elm && (*elm->key || elm->b_key))
+	while (elm && elm->key && elm->key->content)
 	{
-		if (!f(key, elm))
+		if (!ft_strncmp(key, elm->key->content, elm->key->content_size + 1))
 		{
-			value->content = elm->value;
-			value->content_size = elm->size_value;
+			value->content = elm->value->content;
+			value->content_size = elm->value->content_size;
 			return (value);
 		}
 		elm = elm->next;
@@ -42,28 +34,13 @@ t_list	*ft_map_getbykey(t_map *map, t_list *value, char *key)
 t_map_elm	*ft_map_get_elm(t_map *map, char *key)
 {
 	t_map_elm	*elm;
-	int			(*f)(char *, t_map_elm *);
 
 	elm = map->root;
-	if (ft_strlen(key))
-		f = check_key;
-	else
-		f = check_b_key;
-	while (elm && (*elm->key || elm->b_key))
+	while (elm && elm->key && elm->key->content)
 	{
-		if (!f(key, elm))
+		if (!ft_strncmp(key, elm->key->content, elm->key->content_size + 1))
 			return (elm);
 		elm = elm->next;
 	}
 	return (NULL);
-}
-
-static int	check_key(char *key, t_map_elm *elm)
-{
-	return (ft_strncmp(key, elm->key, elm->size_key + 1));
-}
-
-static int	check_b_key(char *key, t_map_elm *elm)
-{
-	return (ft_strncmp(key, elm->b_key->content, elm->b_key->content_size + 1));
 }

@@ -34,7 +34,7 @@ FT_LST		= ft_lstadd.c ft_lstdelcontent.c ft_lstmap.c ft_lstpushf.c \
 				ft_lststrsplit.c ft_lstputstr.c ft_lstputendl.c \
 				ft_lstputstr_fd.c ft_lstputendl_fd.c
 FT_LST2		= 	ft_2lstcut.c ft_2lstdel.c ft_2lstdelone.c ft_2lstinsert.c \
-                ft_2lstnew.c ft_2lstpushb.c ft_2lstpushf.c
+                ft_2lstnew.c ft_2lstpushb.c ft_2lstpushf.c ft_2lststrsplit.c
 FT_PUT		= ft_putchar.c ft_putendl.c ft_putnbr.c ft_putnendl.c ft_putstr.c \
 				ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putnstr.c \
 				ft_putstr_fd.c ft_putnbr_to_mem.c ft_putmem.c \

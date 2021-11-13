@@ -44,21 +44,11 @@ int	ft_map_del_elm(t_map *map, char *key)
 
 static void	clean_elm(t_map *map, t_map_elm *elm)
 {
-	map->size -= map->last->size_key + map->last->size_value;
-	if (elm->b_value)
-	{
-		map->size -= elm->b_key->content_size;
-		ft_2lstcut(&map->big_value, elm->b_value, ft_lstdelcontent);
-	}
-	else
-		map->size -= elm->size_key;
-	if (elm->b_key)
-	{
-		map->size -= elm->b_value->content_size;
-		ft_2lstcut(&map->big_value, elm->b_key, ft_lstdelcontent);
-	}
-	else
-		map->size -= elm->size_value;
+	map->size -= elm->key->content_size + elm->key->content_size;
+	if (elm->key->content_size > FT_MAP_MAX_NAME_LEN)
+		ft_2lstcut(&map->big_value, elm->key->content, ft_lstdelcontent);
+	if (elm->value->content_size > FT_MAP_MAX_NAME_LEN)
+		ft_2lstcut(&map->big_value, elm->value->content, ft_lstdelcontent);
 	ft_bzero(elm, sizeof(*elm));
 	add_to_del_list(&map->del_list, elm, sizeof(*elm));
 }

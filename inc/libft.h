@@ -112,6 +112,7 @@ t_2list				*ft_2lstpushf(t_2list **root, void *content,
 						size_t content_size);
 t_2list				*ft_2lstpushb(t_2list **root, void *content,
 						size_t content_size);
+t_2list				*ft_2lststrsplit(char const *s, char c);
 
 /*
 **  FT_PUT..

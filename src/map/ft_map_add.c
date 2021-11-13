@@ -17,7 +17,7 @@ static t_map_elm	*new_key(t_map *map, char *key, char *value,
 						t_map_elm **elm);
 static t_map_elm	*elm_restore(t_map *map, t_map_elm *elm);
 
-t_map	*ft_map_add(t_map *map, char *key, char *value)
+t_map_elm	*ft_map_add(t_map *map, char *key, char *value)
 {
 	t_map_elm	*cur;
 	t_map_elm	*in;
@@ -38,7 +38,7 @@ t_map	*ft_map_add(t_map *map, char *key, char *value)
 	}
 	else if (in)
 		insert_elm(map, cur, in);
-	return (map);
+	return (cur);
 }
 
 void	insert_elm(t_map *map, t_map_elm *cur, t_map_elm *in)
@@ -59,13 +59,15 @@ t_map_elm	*find_current_location(t_map_elm *elm, char *key)
 {
 	char	*cur;
 
-	cur = elm->key;
+	if (!elm->key)
+		return (NULL);
+	cur = (char *)elm->key->content;
 	while (cur && ft_strcmp(cur, key) <= 0)
 	{
 		elm = elm->next;
 		if (!elm)
 			return (NULL);
-		cur = elm->key;
+		cur = (char *)elm->key->content;
 	}
 	return (elm);
 }
@@ -77,18 +79,9 @@ static t_map_elm	*new_key(t_map *map, char *key, char *value, t_map_elm **elm)
 	del = (char)(map->deleted > 0);
 	if (del)
 		*elm = elm_restore(map, *elm);
-	(*elm)->size_key = ft_strlen(key);
-	(*elm)->size_value = ft_strlen(value);
-	if ((*elm)->size_key < FT_MAP_MAX_NAME_LEN)
-		ft_memcpy((*elm)->key, key, (*elm)->size_key);
-	else
-		(*elm)->b_key = ft_2lstpushf(&map->big_value, key, (*elm)->size_key);
-	if ((*elm)->size_value < FT_MAP_MAX_NAME_LEN)
-		ft_memcpy((*elm)->value, value, (*elm)->size_value);
-	else
-		(*elm)->b_value = ft_2lstpushf(&map->big_value, value, (*elm)->size_value);
+	ft_map_set_content(map, elm, key, value);
 	++map->count;
-	map->size += (*elm)->size_key + (*elm)->size_value;
+	map->size += (*elm)->key->content_size + (*elm)->value->content_size;
 	if (!del)
 		map->last++;
 	return (*elm);

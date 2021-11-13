@@ -20,15 +20,9 @@ void	ft_map_print_all(t_map *map)
 	elm = map->root;
 	while (elm)
 	{
-		if (elm->b_key)
-			ft_putnstr(elm->b_key->content, elm->b_key->content_size);
-		else
-			ft_putnstr(elm->key, elm->size_key);
+		ft_putnstr(elm->key->content, elm->key->content_size);
 		ft_putchar('=');
-		if (elm->b_value)
-			ft_putnstr(elm->b_value->content, elm->b_value->content_size);
-		else
-			ft_putnstr(elm->value, elm->size_value);
+		ft_putnstr(elm->value->content, elm->value->content_size);
 		ft_putchar('\n');
 		elm = elm->next;
 	}
@@ -41,20 +35,16 @@ void	ft_map_print_all_arr(t_map *map)
 	elm = map->arr;
 	while (elm && elm != map->last)
 	{
-		ft_putchar((char)('0' + (elm->size_key > 0)));
-		ft_putchar('\t');
-		if (elm->b_key)
-			ft_putnstr(elm->b_key->content, elm->b_key->content_size);
+		if (elm->key)
+		{
+			ft_putchar((char) ('0' + (elm->key->content_size > 0)));
+			ft_putchar('\t');
+			ft_putnstr(elm->key->content, elm->key->content_size);
+			ft_putchar('=');
+			ft_putnendl(elm->value->content, elm->value->content_size);
+		}
 		else
-			ft_putnstr(elm->key, elm->size_key);
-		if (!elm->size_key)
-			ft_putstr("\t---\t");
-		ft_putchar('=');
-		if (elm->b_value)
-			ft_putnstr(elm->b_value->content, elm->b_value->content_size);
-		else
-			ft_putnstr(elm->value, elm->size_value);
-		ft_putchar('\n');
+			ft_putendl("0\t --- \t");
 		++elm;
 	}
 }

@@ -26,12 +26,12 @@ typedef struct s_map_elm	t_map_elm;
 
 struct s_map_elm
 {
-	char				key[FT_MAP_MAX_NAME_LEN + 1];
-	char				value[FT_MAP_MAX_NAME_LEN + 1];
-	t_2list				*b_key;
-	t_2list				*b_value;
-	size_t				size_key;
-	size_t				size_value;
+	char				s_key[FT_MAP_MAX_NAME_LEN + 1];
+	char				s_value[FT_MAP_MAX_NAME_LEN + 1];
+	t_2list				b_key;
+	t_2list				b_value;
+	t_2list				*key;
+	t_2list				*value;
 	struct s_map_elm	*prev;
 	struct s_map_elm	*next;
 };
@@ -51,14 +51,18 @@ struct s_map
 };
 
 // map/ft_map_add.c
-t_map		*ft_map_add(t_map *map, char *key, char *value);
+t_map_elm	*ft_map_add(t_map *map, char *key, char *value);
 t_map_elm	*find_current_location(t_map_elm *elm, char *key);
 void		insert_elm(t_map *map, t_map_elm *cur, t_map_elm *in);
 
 /*
 ** map/ft_map_set.c
 */
-t_map		*ft_map_set(t_map *map, char *key, char *value);
+t_map_elm	*ft_map_set(t_map *map, char *key, char *value);
+t_map_elm	*ft_map_set_content(t_map *map, t_map_elm **elm,
+				char *key, char *value);
+t_map_elm	*ft_map_set_key(t_map *map, t_map_elm **elm, char *key);
+t_map_elm	*ft_map_set_value(t_map *map, t_map_elm **elm, char *value);
 
 // map/ft_map_new.c
 t_map		*ft_map_new(void);
