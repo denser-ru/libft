@@ -40,7 +40,8 @@ t_map_elm	*ft_map_set_key(t_map *map, t_map_elm **elm, char *key)
 	{
 		(*elm)->key = &(*elm)->b_key;
 		(*elm)->key->content = (*elm)->s_key;
-		ft_memcpy((*elm)->key->content, key, (*elm)->b_key.content_size);
+		(*elm)->key->content_size = (*elm)->b_key.content_size;
+		ft_strcpy((*elm)->key->content, key);
 	}
 	else
 	{
@@ -65,7 +66,8 @@ t_map_elm	*ft_map_set_value(t_map *map, t_map_elm **elm, char *value)
 	{
 		(*elm)->value = &(*elm)->b_value;
 		(*elm)->value->content = (*elm)->s_value;
-		ft_memcpy((*elm)->value->content, value, (*elm)->b_value.content_size);
+		(*elm)->value->content_size = (*elm)->b_value.content_size;
+		ft_strcpy((*elm)->value->content, value);
 	}
 	else
 	{
