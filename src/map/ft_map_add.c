@@ -72,7 +72,8 @@ t_map_elm	*find_current_location(t_map_elm *elm, char *key)
 	return (elm);
 }
 
-static t_map_elm	*new_key(t_map *map, char *key, char *value, t_map_elm **elm)
+static t_map_elm	*new_key(t_map *map, char *key, char *value,
+						t_map_elm **elm)
 {
 	char	del;
 

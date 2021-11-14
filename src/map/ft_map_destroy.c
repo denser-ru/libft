@@ -25,6 +25,7 @@ int	ft_map_destroy(t_map **map)
 	*map = NULL;
 	return (0);
 }
+
 static void	free_del_list(t_2list **list)
 {
 	if (*list)

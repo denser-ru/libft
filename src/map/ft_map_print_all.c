@@ -37,7 +37,7 @@ void	ft_map_print_all_arr(t_map *map)
 	{
 		if (elm->key)
 		{
-			ft_putchar((char) ('0' + (elm->key->content_size > 0)));
+			ft_putchar((char)('0' + (elm->key->content_size > 0)));
 			ft_putchar('\t');
 			ft_putnstr(elm->key->content, elm->key->content_size);
 			ft_putchar('=');

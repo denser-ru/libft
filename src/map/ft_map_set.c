@@ -46,11 +46,11 @@ t_map_elm	*ft_map_set_key(t_map *map, t_map_elm **elm, char *key)
 	else
 	{
 		(*elm)->key = ft_2lstpushf(&map->big_value, key,
-			(*elm)->b_key.content_size);
+				(*elm)->b_key.content_size);
 		if (!(*elm)->key)
 		{
 			ft_strncpy(map->err, "can`t get memory for ft_2lstnew()",
-					   FT_ERR_LEN);
+				FT_ERR_LEN);
 			return (NULL);
 		}
 	}
@@ -72,11 +72,11 @@ t_map_elm	*ft_map_set_value(t_map *map, t_map_elm **elm, char *value)
 	else
 	{
 		(*elm)->value = ft_2lstpushf(&map->big_value, value,
-									 (*elm)->b_value.content_size);
+				(*elm)->b_value.content_size);
 		if (!(*elm)->value)
 		{
 			ft_strncpy(map->err, "can`t get memory for ft_2lstnew()",
-					   FT_ERR_LEN);
+				FT_ERR_LEN);
 			return (NULL);
 		}
 	}
