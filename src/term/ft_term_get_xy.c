@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "term.h"
+#include "ft_term.h"
 #include "libft.h"
 
 void	ft_term_get_xy(size_t *xy)

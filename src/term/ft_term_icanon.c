@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "term.h"
+#include "ft_term.h"
 
 void	ft_term_icanon(t_term	*last_term, t_term	*term)
 {

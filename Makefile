@@ -70,7 +70,7 @@ SRC		+= $(addprefix map/,$(MAP))
 
 OBJS	= $(addprefix $(OBJDIR)/,$(SRC:.c=.o))
 
-INCS	= libft.h ft_printf.h term.h ft_frame.h
+INCS	= libft.h ft_printf.h ft_term.h ft_frame.h
 INC		= $(addprefix $(INCDIR)/,$(INCS))
 
 all: $(NAME)

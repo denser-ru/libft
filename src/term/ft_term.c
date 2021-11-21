@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "term.h"
+#include "ft_term.h"
 #include "ft_frame.h"
 #include "libft.h"
 

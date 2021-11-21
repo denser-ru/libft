@@ -13,7 +13,7 @@
 #ifndef FT_FRAME_H
 # define FT_FRAME_H
 
-# include "term.h"
+# include "ft_term.h"
 
 typedef struct s_frame
 {

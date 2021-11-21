@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TERM_H
-# define TERM_H
+#ifndef FT_TERM_H
+# define FT_TERM_H
 
 # include "libft.h"
-# include "term.h"
+# include "ft_term.h"
 # include <termios.h>
 
 # define ESC "\033"
